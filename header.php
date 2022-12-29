@@ -28,12 +28,19 @@
             <li>
                 <a href="">Nữ</a>
                 <ul class="subnav">
-                          </ul>
+                </ul>
             </li>
-            <li><a href="">Nam</a></li>
-            <li><a href="">Hoodie</a></li>
-            <li><a href="">Boovironment</a></li>
-            <li><a href="">Holiday Holi</a></li>
+            <li>
+                <a href="">Nam</a>
+                <ul class="subnav"></ul>
+            </li>
+            <li><a href="">Hoodie</a>
+            <ul class="subnav"></ul>
+            </li>
+            <li><a href="">Boovironment</a>
+            <ul class="subnav"></ul></li>
+            <li><a href="">Holiday Holi</a>
+            <ul class="subnav"></ul></li>
         </div>
         <div class="btn-right">
             <div class="search-btn">
@@ -48,7 +55,7 @@
                 </a>
             </div>
             <div class="login-btn">
-                <a class="header-btn" href="">
+                <a class="header-btn dropdown-toggle" data-toggle="dropdown"" href="">
                     <i class="fa-regular fa-user"></i>
                 </a>
                 <ul class="dropdown-menu">

@@ -45,24 +45,58 @@ html{
 
 .nav >li{
 	display: inline-block;
+	
+}
+
+.nav li{
+	position: relative;
 }
 
 .nav>li>a{
 	text-transform: uppercase;
 }
 
-.nav>li>a:hover{
+.nav>li:hover>a{
 	color: red;
 	background-color: #fff;
+	
 }
 
 .nav li a {
 	font-size: 16px;
 	text-decoration: none;
 	line-height: 61px;
-	padding: 0;
+	padding: 0 20px;
+	display: block;
 	color: black;
 }
+
+.subnav{
+	position: absolute;
+	display: none;
+	top: 101%;
+	z-index: 0;
+	left: -1500px;
+	width: 5000px;
+	height: 200px;
+	background-color: #fff;
+}
+
+
+.nav li:hover .subnav{
+	display: block;
+	animation: fadeIn linear 0.1s;
+}
+
+@keyframes fadeIn{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
+
 
 .header-btn{
 	text-decoration: none;
@@ -102,32 +136,12 @@ html{
 	display: inline-block;
 } 
 
-.subnav{
-	display: block;
-	width: 30px;
-	height: 30px;
-	border: 1px solid #000;
-}
 
-.login-btn:hover .dropdown-menu{
-	display: block;
-}
 
 .dropdown-menu{
 	left:86%;
 	top: 70% ;
-	/* animation-name: ease;
-	animation-duration: 4s; */
-	animation: example 5s linear 2s infinite alternate;
-
-}
-
-@keyframes ease {
-	0%   {background-color:red; left:0px; top:0px;}
-  25%  {background-color:yellow; left:200px; top:0px;}
-  50%  {background-color:blue; left:200px; top:200px;}
-  75%  {background-color:green; left:0px; top:200px;}
-  100% {background-color:red; left:0px; top:0px;}
+	animation: fadeIn linear 0.2s;
 }
 
 
