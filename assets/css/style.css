@@ -5,7 +5,7 @@
 }
 
 html{
-    font-family: "Lato", sans-serif;
+    font-family: "Helvetica Neue", sans-serif;
     scroll-behavior: smooth;
 }
 .mt-8{
@@ -20,7 +20,7 @@ html{
 	top: 0;
 	right: 0;
 	left: 0;
-	z-index: 1; 
+	z-index: 2; 
 	border-bottom: 1px solid black;
 	background-color: #fff;
 }
@@ -50,6 +50,8 @@ html{
 
 .nav li{
 	position: relative;
+	display: inline-block;
+	    text-align: left;
 }
 
 .nav>li>a{
@@ -63,29 +65,34 @@ html{
 }
 
 .nav li a {
-	font-size: 16px;
+	font-size: 14px;
 	text-decoration: none;
 	line-height: 61px;
 	padding: 0 20px;
 	display: block;
 	color: black;
+	text-align: left;
 }
 
 .subnav{
-	position: absolute;
+	position: fixed;
 	display: none;
-	top: 101%;
-	z-index: 0;
-	left: -1500px;
-	width: 5000px;
-	height: 200px;
+	top: 64px;
+	z-index: 1;
+	left: 0;
+	right: 0;
 	background-color: #fff;
+	padding: 30px 10px;
 }
 
 
 .nav li:hover .subnav{
 	display: block;
 	animation: fadeIn linear 0.1s;
+}
+
+.nav li .subnav a:hover{
+	color: red;
 }
 
 @keyframes fadeIn{
@@ -127,6 +134,32 @@ html{
 	font-size: 20px;
 }
 
+.search-container{
+	text-align: center;
+	border: 1px solid #575757;
+	width: 1000px;
+	border-radius: 50px;
+	height: 40px;
+	margin: 0 auto;
+}
+
+.search-input{
+	border: none; 
+	float:left; 
+	outline:none; 
+	line-height: 40px; 
+	padding: 0 20px;
+	background-color: transparent;
+}
+
+.search-submit{
+	background-color: transparent;
+	border: none;
+	line-height: 40px;
+	float: right;
+	padding: 0 20px;
+}
+
 .heart-icon{
 	font-size: 20px;
 }
@@ -144,6 +177,8 @@ html{
 	animation: fadeIn linear 0.2s;
 }
 
+/* END HEADER-------------------------------------------- */
+
 
 #slider{
 	position: relative;
@@ -152,3 +187,113 @@ html{
     background: url('https://cdn2.boo.vn/media/wysiwyg/z3833152554507_570e6b6fbd2f912e2074461560443cf3.jpg') top center /cover no-repeat;
 	height: 900px;
 }
+
+.mySlides{ width:100%}
+
+.button-left{left:1%; font-size:50px}
+.button-right{right:1%; font-size:50px }
+.image-button{ border:none;display:inline-block;padding:10px;height:50px;vertical-align:middle;overflow:hidden; color:#fff;background:#000;position:absolute; opacity:0.5;}
+.image-button:hover{color:#000;background-color:#ccc;}
+.display-container{position:relative}
+
+#footer{
+	padding-top: 50px;
+	border-top: 1px solid #000;
+}
+
+#footer .footer_header{
+	text-align: left;
+	font-size: 16px;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+#footer .footer_detail {
+	list-style: none;
+	text-align: left;
+	font-size: 13px;
+	line-height: 25px;
+	color: #575757;
+	letter-spacing: 0.5px;
+
+}
+
+#footer .footer_detail li a{
+	text-decoration: none;
+	color: #575757;
+}
+
+#top-up {
+	font-size: 50px;
+	cursor: pointer;
+	position: fixed;
+	z-index: 2;
+	color: #000;
+	bottom: 170px;
+	right: 15px;
+	display: none;
+}
+#top-up:hover {
+	color: #333
+}
+
+.contact{
+	cursor: pointer;
+	position: fixed;
+	z-index: 2;
+	color: #000;
+	display: block;
+	display: block;
+	bottom: 100px;
+	right: 15px;
+}
+
+#open-button{
+	font-size: 50px;
+}
+
+@keyframes growth{
+	from { transform: scale(0)}
+	to {transform: scale(1)}
+}
+
+.toolbar {
+	display: none;
+    min-width: 180px;
+    min-height: 138px;
+    background-color: #fff;
+    position: absolute;
+    left: -200px;
+    top: -46px;
+    text-align: left;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+	animation: growth .2s;
+}
+
+.toolbar li{
+	position: relative;
+	list-style: none;
+	padding: 8px 20px;
+	margin-top: 5px;
+
+}
+
+.toolbar li a{
+	text-decoration: none;
+	font-size: 14px;
+	color: black;
+	text-align: left;
+	line-height: 30px;
+}
+
+.toolbar li a i{
+	font-size: 22px;
+	margin-right: 10px;
+}
+
+.visibile {
+	display: block;	
+	z-index: 1;
+}
+
+

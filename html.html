@@ -1,0 +1,36 @@
+<script
+  type="text/javascript"
+  src="https://code.jquery.com/jquery-1.11.0.min.js"
+></script>
+<script
+  type="text/javascript"
+  src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"
+></script>
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+></script>
+<link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+  />
+<html>
+    <div class="row-slick" style="padding: 100px;">
+        <img width="300px" src="/assets/img/notfound.jpg" alt="">
+        <img width="300px" src="/assets/img/notfound.jpg" alt="">
+        <img width="300px" src="/assets/img/notfound.jpg" alt="">
+        <img width="300px" src="/assets/img/notfound.jpg" alt="">
+
+    </div>
+    <script>
+        $(document).ready(function(){
+    $('.row-slick').slick({
+        infinite: true,
+  slidesToShow: 1,
+  slidesToScroll: 1
+    }
+    );
+  });
+    </script>
+</html>
