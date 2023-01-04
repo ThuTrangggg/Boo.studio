@@ -8,26 +8,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
 
-    <link rel="stylesheet" href="/Nhom14/assets/css/js_bootstrap/js.js">
-    <link rel="stylesheet" href="/Nhom14/assets/css/fontawesome-free-6.2.1-web/css/all.min.css" type="text/css">
-    <link rel="stylesheet" href="/Nhom14/assets/css/js_bootstrap/bootstrap.min.css">
-    <script src="/Nhom14/assets/css/js_bootstrap/jquery-3.1.1.min.js"></script>
-    <script src="/Nhom14/assets/css/js_bootstrap/bootstrap.min.js"></script>
-    <link rel="icon" href="/Nhom14/assets/img/boo_logo.png">
-    <link rel="stylesheet" href="/Nhom14/assets/css/themify-icons/themify-icons.css">
-    <link rel="stylesheet" href="/Nhom14/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/js_bootstrap/js.js">
+    <link rel="stylesheet" href="/assets/css/fontawesome-free-6.2.1-web/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/js_bootstrap/bootstrap.min.css">
+    <script src="/assets/css/js_bootstrap/jquery-3.1.1.min.js"></script>
+    <script src="/assets/css/js_bootstrap/bootstrap.min.js"></script>
+    <link rel="icon" href="/assets/img/boo_logo.png">
+    <link rel="stylesheet" href="/assets/css/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.js"></script>
     <title>BOO.VN-NHOM14</title>
+    <link rel="stylesheet" href="/assets/css/styles-m.css">
+    <link rel="stylesheet" href="/assets/css/home.css">
 </head>
 <?php include 'connect.php' ?>
 
 <body>
     <div class="header">
         <div class="mt-8 logo">
-            <a href="/Nhom14/index.php">
-                <img src="/Nhom14/assets/img/boo_logo1.png" alt="">
+            <a href="/index.php">
+                <img src="/assets/img/boo_logo1.png" alt="">
             </a>
         </div>
         <div class="nav">
@@ -202,8 +204,12 @@
                     <i class="fa-regular fa-user"></i>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Đăng ký</a></li>
-                    <li><a href="#">Đăng nhập</a></li>
+                    <?php if(isset($_SESSION['user'])): ?>
+                        <li><a href="/action/logout.php">Đăng xuất</a></li>
+                    <?php else: ?>
+                        <li><a href="/register.php">Đăng ký</a></li>
+                        <li><a href="/login.php">Đăng nhập</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
             <div class="cart-btn">
