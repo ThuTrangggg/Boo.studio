@@ -1,23 +1,30 @@
 <html>
 <head>
-    <!-- <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
-    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+
+    <link rel="stylesheet" href="/Nhom14/assets/css/js_bootstrap/js.js">
     <link rel="stylesheet" href="/Nhom14/assets/css/fontawesome-free-6.2.1-web/css/all.min.css" type="text/css">
     <link rel="stylesheet" href="/Nhom14/assets/css/js_bootstrap/bootstrap.min.css">
+    <script src="/Nhom14/assets/css/js_bootstrap/jquery-3.1.1.min.js"></script>
+    <script src="/Nhom14/assets/css/js_bootstrap/bootstrap.min.js"></script>
     <link rel="icon" href="/Nhom14/assets/img/boo_logo.png">
     <link rel="stylesheet" href="/Nhom14/assets/css/themify-icons/themify-icons.css">
-    <link rel="stylesheet" href="/Nhom14/assets/css/style.css"> -->
-
+    <link rel="stylesheet" href="/Nhom14/assets/css/style.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.js"></script>
+    <title>BOO.VN-NHOM14</title>
     <title></title>
 </head>
 <footer id="footer" class="container-fluid text-center">
     <!-- import icon font awesome -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" /> -->
 <!-- Import thư viện JQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 <script>
 // kéo xuống khoảng cách 500px thì xuất hiện nút Top-up
 var offset = 100;
@@ -67,24 +74,30 @@ handleButtonClick = () => {
     </div>
 </div>
 
+<script>
+    function dangkyemail(){
+        alert("Đã gửi thành công!")
+    }
+</script>
+
 <section class="abovefooter text-white" style="background-color: #fff; ">
             <div class="row">
                 <div class="col-lg-4 col-sm-6">
                     <div class="d-flex">
-                        <div class="footer_header" style="margin-left: 24px;">
+                        <div class="footer_header" style="margin-left: 25px; font-size: 14px">
                         <p>Đăng ký nhận thông tin</p>
                         </div>  
-                        <form class="form-inline">
-                            <input type="email" class="form-control" size="57" placeholder="Email Address">
+                        <form class="form-inline" onsubmit="return dangkyemail()">
+                            
+                            <input type="email" class="form-control" size="50" placeholder="Email Address">
                             <br>
                             <div class="row" style="margin: 20px 0 0 30px;">
                                 <input type="checkbox" class="col-lg-1" style="font-size:14px;     width: 14px;" >
                                 <label for="" class="col-lg-8" style="display:inline; color:#575757; font-weight:100; font-size:12px; padding: 0; text-align:left; margin: 0 18px 0 10px">
                                 Tôi đồng ý nhận các bản tin thương mại từ Boo.vn qua email cá nhân và các phương tiện khác.
                                 </label>
-                                <button type="button " class="btn btn-danger col-lg-2" style="background-color:black; border:none;">Đăng ký</button>
+                                <button type="submit" class="btn btn-danger col-lg-2" style="background-color:black; border:none;">Đăng ký</button>
                             </div>
-                            
                         </form>
                         <div class="footer_detail" style="letter-spacing:0; line-height:20px; font-size:13px; margin:20px 0 0 25px">
                             <p> Công ty Cổ phần Thương mại Boo </p>

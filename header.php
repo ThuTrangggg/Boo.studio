@@ -33,129 +33,52 @@
         <div class="nav">
             <li>
                 <a href="">Nữ</a>
-                <ul class="subnav" style="text-transform: uppercase; ">
-                    <div class="row">
-                        <li class="col-lg-2"></li>
-                        <li class="col-lg-2" style="font-weight:bold"><a href="">Tất cả mặt hàng nữ</a></li>
-                        <?php $sql = "SELECT *from danh_sach_loai_hang_1 where parent_id = 1";
-                        $ketquatruyvan = $conn->query($sql);
-                        if ($ketquatruyvan->num_rows > 0) {
-                            while ($loaiHang = $ketquatruyvan->fetch_assoc()) {
-                                $id = $loaiHang['id'];
-                                $sql1 = "select ten_loai_hang from danh_sach_loai_hang_2 where parent_id1 =" . $id;
-                                $ketquatruyvan1 = $conn->query($sql1);
-                        ?>
-                                <li class="col-lg-2"><a href="">
-                                        <a style="font-weight:bold" href="./danh_sach_mat_hang/chi_tiet_mat_hang.php?id=<?= $loaiHang['id'] ?>">
-                                            <?php echo $loaiHang['ten_loai_hang']; ?>
-                                        </a>
-                                        <?php
-                                        while ($loaiHang1 = $ketquatruyvan1->fetch_assoc()) {
-                                        ?>
-                                            <a href="">
-                                    <?php echo $loaiHang1['ten_loai_hang'];
-                                        }
-                                    }
-                                }
-                                    ?>
-
-                                            </a>
-                                </li>
-                </ul>
-
             <li>
                 <a href="">Nam</a>
-                <ul class="subnav" style="text-transform: uppercase; ">
-                    <div class="row">
-                        <li class="col-lg-2"></li>
-                        <li class="col-lg-2" style="font-weight:bold"><a href="">Tất cả mặt hàng nam</a></li>
-                        <?php $sql = "SELECT *from danh_sach_loai_hang_1 where parent_id = 2";
-                        $ketquatruyvan = $conn->query($sql);
-                        if ($ketquatruyvan->num_rows > 0) {
-                            while ($loaiHang = $ketquatruyvan->fetch_assoc()) {
-                                $id = $loaiHang['id'];
-                                $sql1 = "select ten_loai_hang from danh_sach_loai_hang_2 where parent_id1 =" . $id;
-                                $ketquatruyvan1 = $conn->query($sql1);
-                        ?>
-                                <li class="col-lg-2"><a href="">
-                                        <a style="font-weight:bold" href="./danh_sach_mat_hang/chi_tiet_mat_hang.php?id=<?= $loaiHang['id'] ?>">
-                                            <?php echo $loaiHang['ten_loai_hang']; ?>
-                                        </a>
-                                        <?php
-                                        while ($loaiHang1 = $ketquatruyvan1->fetch_assoc()) {
-                                        ?>
-                                            <a href="">
-                                    <?php echo $loaiHang1['ten_loai_hang'];
-                                        }
-                                    }
-                                }
-                                    ?>
 
-                                            </a>
-                                </li>
-                </ul>
             </li>
             <li>
                 <a href="">Brands</a>
-                <ul class="subnav" style="text-transform: uppercase; ">
-                    <div class="row">
-                        <li class="col-lg-2"></li>
-                        <?php $sql = "SELECT *from danh_sach_loai_hang_1 where parent_id = 3";
-                        $ketquatruyvan = $conn->query($sql);
-                        if ($ketquatruyvan->num_rows > 0) {
-                            while ($loaiHang = $ketquatruyvan->fetch_assoc()) {
-                                $id = $loaiHang['id'];
-                                $sql1 = "select ten_loai_hang from danh_sach_loai_hang_2 where parent_id1 =" . $id;
-                                $ketquatruyvan1 = $conn->query($sql1);
-                        ?>
-                                <li class="col-lg-2"><a href="">
-                                        <a style="font-weight:bold" href="./danh_sach_mat_hang/chi_tiet_mat_hang.php?id=<?= $loaiHang['id'] ?>">
-                                            <?php echo $loaiHang['ten_loai_hang']; ?>
-                                        </a>
-                                        <?php
-                                        while ($loaiHang1 = $ketquatruyvan1->fetch_assoc()) {
-                                        ?>
-                                            <a href="">
-                                    <?php echo $loaiHang1['ten_loai_hang'];
-                                        }
-                                    }
-                                }
-                                    ?>
 
-                                            </a>
-                                </li>
-                </ul>
             </li>
             <li>
                 <a href="" style="color:red; font-weight:600">Tết mua hết</a>
-                <ul class="subnav" style="text-transform: uppercase; ">
+                <!-- <ul class="subnav" style="text-transform: uppercase; ">
                     <div class="row">
                         <li class="col-lg-2"></li>
                         <li class="col-lg-2" style="font-weight:bold"><a href="">Tất cả mặt hàng nam</a></li>
-                        <?php $sql = "SELECT *from danh_sach_loai_hang_1 where parent_id = 5";
-                        $ketquatruyvan = $conn->query($sql);
-                        if ($ketquatruyvan->num_rows > 0) {
-                            while ($loaiHang = $ketquatruyvan->fetch_assoc()) {
-                                $id = $loaiHang['id'];
-                                $sql1 = "select ten_loai_hang from danh_sach_loai_hang_2 where parent_id1 =" . $id;
-                                $ketquatruyvan1 = $conn->query($sql1);
+                        <?php
+                        // $sql = "SELECT *from tbl_loaisanpham where parent_id = 5";
+                        // $ketquatruyvan = $conn->query($sql);
+                        // if ($ketquatruyvan->num_rows > 0) {
+                        //     while ($loaiHang = $ketquatruyvan->fetch_assoc()) 
+                        // {
+                        // $id = $loaiHang['id'];
+                        // $sql1 = "select ten_loai_hang from danh_sach_loai_hang_2 where parent_id1 =" . $id;
+                        // $ketquatruyvan1 = $conn->query($sql1);
                         ?>
                                 <li class="col-lg-2"><a href="">
-                                        <a style="font-weight:bold" href="./danh_sach_mat_hang/chi_tiet_mat_hang.php?id=<?= $loaiHang['id'] ?>">
-                                            <?php echo $loaiHang['ten_loai_hang']; ?>
+                                        <a style="font-weight:bold" href="./danh_sach_mat_hang/chi_tiet_mat_hang.php?id=<?
+                                                                                                                        // = 
+                                                                                                                        // $loaiHang['id'] 
+                                                                                                                        ?>">
+                                            <?php
+                                            // echo $loaiHang['ten_loai_hang']; 
+                                            ?>
                                         </a>
                                         <?php
-                                        while ($loaiHang1 = $ketquatruyvan1->fetch_assoc()) {
+                                        // while ($loaiHang1 = $ketquatruyvan1->fetch_assoc()) {
                                         ?>
                                             <a href="">
-                                    <?php echo $loaiHang1['ten_loai_hang'];
-                                        }
-                                    }
-                                }
+                                    <?php
+                                    //  echo $loaiHang1['ten_loai_hang'];
+                                    // }
+                                    // }
+                                    // }
                                     ?>
                                             </a>
                                 </li>
-                </ul>
+                </ul> -->
             </li>
             <li>
                 <a href="" style="color:green; font-weight:600">Boovironment</a>
@@ -172,6 +95,19 @@
                 //     document.getElementById("search-id").style.display}
                 var x = document.getElementById('search-id');
                 x.classList.toggle("visibile");
+
+            }
+
+            function openlogin() {
+                // console.log('2');
+                // console.log(document.getElementById("search-id").style.display)
+                // if(console.log(document.getElementById("search-id").style.display) ==="none"){
+                //     document.getElementById("search-id").style.display= "block";
+                // }else {
+                //     document.getElementById("search-id").style.display}
+                var x = document.getElementById('login-subnav');
+                x.classList.toggle("visibile");
+
             }
         </script>
 
@@ -198,12 +134,24 @@
                 </a>
             </div>
             <div class="login-btn">
+               
                 <a class="header-btn dropdown-toggle" data-toggle="dropdown" href="">
-                    <i class="fa-regular fa-user"></i>
-                </a>
+                        <i class="fa-regular fa-user"></i>
+                    </a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Đăng ký</a></li>
-                    <li><a href="#">Đăng nhập</a></li>
+                    <?php
+                    if (isset($_SESSION['login']) && $_SESSION['login'] == 1) {
+                    ?>
+                        <li><a href="#">Thông tin tài khoản</a></li>
+                        <li><a href="/Nhom14/sign_log_in/dang_xuat.php">Đăng xuất</a></li>
+                    <?php
+                    } else {
+                    ?>
+                        <li><a href="/Nhom14/sign_log_in/dang_nhap.php">Đăng nhập</a></li>
+                        <li><a href="/Nhom14/sign_log_in/dang_ky.php">Đăng ký</a></li>
+                    <?php
+                    }
+                    ?>
                 </ul>
             </div>
             <div class="cart-btn">

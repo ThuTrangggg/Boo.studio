@@ -1,15 +1,23 @@
-<?php 
-$severname = "localhost";
-$username = "root";
-$password = "";
-$dbname = "nhom14";
+<?php
 
-//Creat connection
-$conn = new mysqli($severname,$username,$password,$dbname);
-
-//Check connection
-if($conn -> connect_error){
-    die("connection failed:".$conn->connect_error);
+function database(){
+    $host = "localhost";
+    $user = "root";
+    $password = "";
+    $database = "nhom14";
+    $db = mysqli_connect($host, $user, $password, $database);
+    mysqli_set_charset($db, 'UTF8');
+    if (mysqli_connect_error()){
+        echo "Connection Fail: ".mysqli_connect_error();
+        exit;
+    }
+    return $db;
+}
+function connect($sql)
+{
+    $db = database();
+    $connect = mysqli_query($db,$sql) or die (mysqli_error($db));
+    return $connect;
 }
 
 function action($sql){
