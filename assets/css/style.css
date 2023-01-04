@@ -296,4 +296,11 @@ html{
 	z-index: 1;
 }
 
+.boo-form{
+	margin-top: 120px;
+}
+
+.error{
+	border: 1px solid red !important;
+}
 
