@@ -55,7 +55,7 @@ session_start();; ?>
     $row1 = mysqli_fetch_array($kq);
 
     $loaisanpham_id = $row1["loaisanpham_id"];
-    
+
     $sql2 =  "SELECT * FROM tbl_loaisanpham WHERE loaisanpham_id = '" . $loaisanpham_id . "' ";
     $loai_sanpham = mysqli_query($ket_noi, $sql2);
     $row2 = mysqli_fetch_array($loai_sanpham);
@@ -65,7 +65,7 @@ session_start();; ?>
     ?>
     <!-- breadcrumb  -->
     <section class="breadcrumbbar">
-        <div class="container"style="margin-top: 50px;">
+        <div class="container" style="margin-top: 50px;">
             <ol class="breadcrumb mb-0 p-0 bg-transparent">
                 <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
                 <li class="breadcrumb-item"><a href="#"><?php echo $row2["ten_loaisanpham"]; ?></a></li>
@@ -117,11 +117,6 @@ session_start();; ?>
                                                         else echo "Hết hàng"; ?>" name="tinh_trang" />
                             <input id="<?= $row1["sanpham_id"] ?>" class="button-capnhat text-uppercase offset-md-4 btn btn-warning mb-4" name="btnSubmit" value="Thêm vào giỏ hàng " onclick="addtocard(<?= $row1["sanpham_id"] ?>)">
                         </form>
-
-
-
-
-
                     </div>
 
                 </div>
