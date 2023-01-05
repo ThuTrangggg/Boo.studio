@@ -110,6 +110,10 @@ html{
 	color: black;
 }
 
+a:visited{
+	color: none;
+}
+
 .header-btn>i{
 	font-size: 20px;
 }

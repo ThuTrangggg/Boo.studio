@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php session_start(); ?>
 
 <head>
     <meta charset="UTF-8">
@@ -134,25 +135,39 @@
                 </a>
             </div>
             <div class="login-btn">
-               
-                <a class="header-btn dropdown-toggle" data-toggle="dropdown" href="">
-                        <i class="fa-regular fa-user"></i>
+                <?php
+                if (isset($_SESSION['login']) && $_SESSION['login'] == 1 && $_SESSION['role_id'] == 1) {
+                ?>
+                    <a class="header-btn dropdown-toggle" data-toggle="dropdown" href="">
+                        <i class="fa-regular fa-user" style="color: red"></i>
                     </a>
-                <ul class="dropdown-menu">
-                    <?php
-                    if (isset($_SESSION['login']) && $_SESSION['login'] == 1) {
-                    ?>
+                    <ul class="dropdown-menu">
                         <li><a href="#">Thông tin tài khoản</a></li>
+                        <li><a href="#">Quản lý website</a></li>
                         <li><a href="/Nhom14/sign_log_in/dang_xuat.php">Đăng xuất</a></li>
                     <?php
+                } elseif (isset($_SESSION['login']) && $_SESSION['login'] == 1 && $_SESSION['role_id'] == 2) {
+                    ?>
+                        <a class="header-btn dropdown-toggle" data-toggle="dropdown" href="">
+                            <i class="fa-solid fa-user"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Thông tin tài khoản</a></li>
+                            <li><a href="/Nhom14/sign_log_in/dang_xuat.php">Đăng xuất</a></li>
+                        <?php
                     } else {
-                    ?>
-                        <li><a href="/Nhom14/sign_log_in/dang_nhap.php">Đăng nhập</a></li>
-                        <li><a href="/Nhom14/sign_log_in/dang_ky.php">Đăng ký</a></li>
-                    <?php
-                    }
-                    ?>
-                </ul>
+                        ?>
+                            <a class="header-btn dropdown-toggle" data-toggle="dropdown" href="">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/Nhom14/sign_log_in/dang_nhap.php">Đăng nhập</a></li>
+                                <li><a href="/Nhom14/sign_log_in/dang_ky.php">Đăng ký</a></li>
+
+                            <?php
+                        }
+                            ?>
+                            </ul>
             </div>
             <div class="cart-btn">
                 <a class="header-btn" href="">
