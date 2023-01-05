@@ -12,4 +12,6 @@ if($conn -> connect_error){
     die("connection failed:".$conn->connect_error);
 }
 
+$ket_noi = mysqli_connect("localhost", "root", "", "nhom14");
+
 ?>

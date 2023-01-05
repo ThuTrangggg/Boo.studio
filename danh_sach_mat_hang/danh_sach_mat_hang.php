@@ -24,12 +24,12 @@ $id = $_GET['id'];
                         <div class="col-sm-3">
                             <div class="">
                                 <div class="panel-body" style="padding: 0">
-                                    <a href="./danh_sach_mat_hang/chi_tiet_mat_hang.php?id=<?= $matHang['sanpham_id'] ?>">
+                                    <a href="/Nhom14/danh_sach_mat_hang/chi_tiet_mat_hang.php?id=<?= $matHang['sanpham_id'] ?>">
                                         <img src="<?php echo $matHang['anh'] ?>" class="img-responsive" style="width:100%; object-fit: contain" alt="Image">
                                     </a>
                                 </div>
                                 <div class="panel-heading text-center">
-                                    <a style="color: black;" href="./danh_sach_mat_hang/chi_tiet_mat_hang.php?id=<?= $matHang['sanpham_id'] ?>">
+                                    <a style="color: black;" href="/Nhom14/danh_sach_mat_hang/chi_tiet_mat_hang.php?id=<?= $matHang['sanpham_id'] ?>">
                                         <?php echo $matHang['ten_sanpham']; ?>
                                     </a>
                                 </div>
