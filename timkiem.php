@@ -12,8 +12,7 @@ include 'header.php';
            
             if (isset($_GET["search"]) && !empty($_GET["search"])) {
                 $key = $_GET["search"];
-                $sql = "select*from danh_sach_mat_hang join danh_sach_loai_hang_2 on
-                danh_sach_mat_hang.loai_hang_id2 = danh_sach_loai_hang_2.id where mo_ta like '%" . $key . "%' or ten_mat_hang like'%" . $key . "%' or
+                $sql = "select*from tbl_sanpham join tbl_loaisanpham on tbl_sanpham.sanpham_id = tbl_loaisanpham where ten_sanpham like '%" . $key . "%' or ten_mat_hang like'%" . $key . "%' or
                 danh_sach_loai_hang_2.ten_loai_hang like '%" . $key . "%'";
                 $ketquatruyvan = $conn->query($sql);
             if ($ketquatruyvan->num_rows > 0) {

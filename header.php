@@ -163,7 +163,6 @@
                             <ul class="dropdown-menu">
                                 <li><a href="/Nhom14/sign_log_in/dang_nhap.php">Đăng nhập</a></li>
                                 <li><a href="/Nhom14/sign_log_in/dang_ky.php">Đăng ký</a></li>
-
                             <?php
                         }
                             ?>
