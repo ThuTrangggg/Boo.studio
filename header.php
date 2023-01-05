@@ -33,13 +33,17 @@
         </div>
         <div class="nav">
             <li>
-                <a href="">Nữ</a>
+                <a href="/Nhom14/danh_sach_mat_hang/danh_sach_mat_hang.php?id=1">áo</a>
             <li>
-                <a href="">Nam</a>
+                <a href="/Nhom14/danh_sach_mat_hang/danh_sach_mat_hang.php?id=2">Váy</a>
 
             </li>
             <li>
-                <a href="">Brands</a>
+                <a href="/Nhom14/danh_sach_mat_hang/danh_sach_mat_hang.php?id=3">Quần</a>
+
+            </li>
+            <li>
+                <a href="/Nhom14/danh_sach_mat_hang/danh_sach_mat_hang.php?id=4">Phụ kiện</a>
 
             </li>
             <li>
@@ -169,7 +173,7 @@
                             </ul>
             </div>
             <div class="cart-btn">
-                <a class="header-btn" href="">
+                <a class="header-btn" href="/Nhom14/thanh_toan/giohang.php">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
             </div>
