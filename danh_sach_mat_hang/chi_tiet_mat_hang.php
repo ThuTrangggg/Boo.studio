@@ -42,7 +42,6 @@ session_start();; ?>
 
 <body>
     <?php
-    include("../config.php");
     $sanpham_id = $_GET['id'];
     $sql1 = "SELECT tbl_sanpham.sanpham_id,tbl_sanpham.loaisanpham_id, 
     tbl_sanpham.ten_sanpham,tbl_sanpham.anh,tbl_sanpham.gia, tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0) 
