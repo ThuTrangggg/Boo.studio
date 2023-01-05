@@ -150,7 +150,7 @@ include("connect.php");
 </html>
 
 <?php
-// require("./footer.php")
+require("./footer.php")
 //  include $_SERVER["DOCUMENT_ROOT"] . "/Nhom14/footer.php"; 
 
 ?>

@@ -12,8 +12,8 @@ include 'header.php';
            
             if (isset($_GET["search"]) && !empty($_GET["search"])) {
                 $key = $_GET["search"];
-                $sql = "select*from tbl_sanpham join tbl_loaisanpham on tbl_sanpham.sanpham_id = tbl_loaisanpham where ten_sanpham like '%" . $key . "%' or ten_mat_hang like'%" . $key . "%' or
-                danh_sach_loai_hang_2.ten_loai_hang like '%" . $key . "%'";
+                $sql = "select ten_sanpham, mo_ta, ten_loaisanpham from tbl_sanpham join tbl_loaisanpham on tbl_sanpham.loaisanpham_id = tbl_loaisanpham.loaisanpham_id
+                where ten_sanpham like '%" . $key . "%' or ten_loaisanpham like'%" . $key . "%'";
                 $ketquatruyvan = $conn->query($sql);
             if ($ketquatruyvan->num_rows > 0) {
                 $i = 0;
