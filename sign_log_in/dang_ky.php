@@ -6,28 +6,35 @@
             onsubmit="return checkForm()" method='post' action='thuc_hien_dang_ky.php'>
     		<fieldset>
     			<legend>Form đăng ký</legend>
-    			<div class="control-group">
-    				<label class="control-label">Username:</label>
+    			
+				<div class="control-group">
+    				<label class="control-label">Email</label>
     				<div class="controls">
-    					<input class="form-control" type="text" id="username" name="ten_nguoi_dung">
+    					<input class="form-control" type="text" id="email" name="email">
     				</div>
     			</div>
     			<div class="control-group">
-    				<label class="control-label">Password:</label>
+    				<label class="control-label">Mật khẩu</label>
     				<div class="controls">
     					<input class="form-control" type="text" id="password" name="mat_khau">
     				</div>
     			</div>
     			<div class="control-group">
-    				<label class="control-label">Confirm Password:</label>
+    				<label class="control-label">Xác nhận mật khẩu</label>
     				<div class="controls">
     					<input class="form-control" type="text" id="confirmPassword" name="confirmPassword">
     				</div>
     			</div>
     			<div class="control-group">
-    				<label class="control-label">Email</label>
+    				<label class="control-label">Họ tên</label>
     				<div class="controls">
-    					<input class="form-control" type="text" id="email" name="email">
+    					<input class="form-control" type="text" id="username" name="ten_nguoi_dung">
+    				</div>
+    			</div>
+				<div class="control-group">
+    				<label class="control-label">Địa chỉ</label>
+    				<div class="controls">
+    					<input class="form-control" type="text" id="username" name="dia_chi">
     				</div>
     			</div>
     			<div class="control-group">

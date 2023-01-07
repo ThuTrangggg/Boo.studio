@@ -44,7 +44,8 @@ session_start();; ?>
     <?php
     $sanpham_id = $_GET['id'];
     $sql1 = "SELECT tbl_sanpham.sanpham_id,tbl_sanpham.loaisanpham_id, 
-    tbl_sanpham.ten_sanpham,tbl_sanpham.anh,tbl_sanpham.gia, tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0) 
+    tbl_sanpham.ten_sanpham,tbl_sanpham.anh,tbl_sanpham.gia, 
+    tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0),tbl_sanpham.gia_ban_khuyen_mai
     FROM tbl_sanpham 
     LEFT JOIN tbl_giohang ON tbl_sanpham.sanpham_id=tbl_giohang.sanpham_id 
     WHERE tbl_sanpham.sanpham_id='" . $sanpham_id . "' ";
@@ -98,6 +99,13 @@ session_start();; ?>
                             <h3 style="color: #F5A623; margin-left: 50px;">
                                 <?php echo number_format($row1["gia"], 0, '', '.'); ?>₫
                             </h3>
+                            <?php
+                                if (isset($row1['gia_ban_khuyen_mai'])) {
+                                ?>
+                                    <div style="text-decoration:line-through; color: #F5A623; margin-left: 50px; text-align: right" class="col-lg-6"><?php echo number_format($row1['gia'], 0, '', '.') . 'đ'; ?></div>
+                                    <div class="col-lg-6" style="color: red;  text-align: left"><?php echo number_format($row1['gia_ban_khuyen_mai'], 0, '', '.') . 'đ'; ?></div>
+                                <?php
+                                } else { ?> <p> <?php echo number_format($row1['gia'], 0, '', '.') . 'đ';} ?></p>
                         </h5>
 
                         <h6 style="margin-left: 50px">TÌNH TRẠNG: <?php if ($row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] > 0) echo "CÒN HÀNG";
@@ -115,7 +123,7 @@ session_start();; ?>
                             <input type="hidden" value="<?= $row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] ?>" name="ton_kho" />
                             <input type="hidden" value="<?php if ($row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] > 0) echo "Còn hàng";
                                                         else echo "Hết hàng"; ?>" name="tinh_trang" />
-                            <input id="<?= $row1["sanpham_id"] ?>" class="button-capnhat text-uppercase offset-md-4 btn btn-warning mb-4" name="btnSubmit" value="Thêm vào giỏ hàng " onclick="addtocard(<?= $row1["sanpham_id"] ?>)">
+                            <input type="submit" id="<?= $row1["sanpham_id"] ?>" class="button-capnhat text-uppercase offset-md-4 btn btn-warning mb-4" name="btnSubmit" value="Thêm vào giỏ hàng " onclick="addtocard(<?= $row1["sanpham_id"] ?>)">
                         </form>
                     </div>
 

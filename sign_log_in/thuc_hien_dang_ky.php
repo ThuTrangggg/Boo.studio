@@ -20,13 +20,13 @@ $sql = "INSERT INTO `users` (`id`, `username`, `password`, `email`, `role_id`)
 <?php
         
     }else
-    {<script>  
+    {?> <script>  
         window.alert( "Đăng ký không thành công");
         header("location: ./dangky.php");
         die();
-        </script>  } 
+        </script>  <?php} 
 
 include "../footer.php";
-
+?>
 </body>
 </html>
