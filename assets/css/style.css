@@ -104,10 +104,25 @@ html{
 	}
 }
 
+a:hover{
+	text-decoration: none;
+}
 
 .header-btn{
 	text-decoration: none;
 	color: black;
+	position: relative;
+}
+
+.number-cart{
+	position: absolute;
+	right: -10px;
+    top: -17px;
+	padding: 0 5px ;
+	font-size: 12px;
+	border-radius: 50%;
+	color: #fff;
+	background-color: rgb(216, 0, 0);
 }
 
 a:visited{

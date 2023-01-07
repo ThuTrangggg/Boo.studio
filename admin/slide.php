@@ -13,17 +13,17 @@
             <!-- Navbar-->
             <?php
                 include("../connect.php");
-                $sql="SELECT * FROM tbl_admin where ten_admin = '".$_SESSION['ten_admin']."'";
+                $sql="SELECT * FROM tbl_khachhang where role_id = '".$_SESSION['role_id']."'";
                 $kq = mysqli_query($ket_noi, $sql);
                 $row = mysqli_fetch_array($kq);
             ;?>
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
-                 <!-- <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i>   <?php echo $_SESSION['ten_admin'];?></a> -->
+                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i>   <?php echo $_SESSION['ten_dang_nhap'];?></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="taikhoan.php?id=<?php echo $row["admin_id"]; ?>">Tài khoản</a></li>
+                        <li><a class="dropdown-item" href="/Nhom14/index.php">Website</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="dangxuat.php">Đăng xuất</a></li>
+                        <li><a class="dropdown-item" href="/Nhom14/sign_log_in/dang_xuat.php">Đăng xuất</a></li>
                     </ul>
                 </li>
             </ul>

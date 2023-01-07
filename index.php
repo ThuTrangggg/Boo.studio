@@ -21,7 +21,7 @@ include("connect.php");
           <!-- <div class="row"> -->
 
           <!-- <div class="slick"> -->
-          <?php $sql = "SELECT *from tbl_sanpham";
+          <?php $sql = "SELECT *from tbl_sanpham order by created_date desc";
           // -- ORDER by created_date DESC ";
           $ketquatruyvan = $conn->query($sql);
           if ($ketquatruyvan->num_rows > 0) {
@@ -76,7 +76,7 @@ include("connect.php");
           <!-- <div class="row"> -->
 
           <!-- <div class="slick"> -->
-          <?php $sql = "SELECT *from tbl_sanpham  ";
+          <?php $sql = "SELECT tbl_sanpham.ten_sanpham, tbl_sanpham.sanpham_id,tbl_sanpham.gia, tbl_sanpham.gia_ban_khuyen_mai,tbl_sanpham.anh, sum(tbl_giohang.so_luong) from tbl_sanpham LEFT join tbl_giohang on tbl_sanpham.sanpham_id = tbl_giohang.sanpham_id GROUP by tbl_giohang.sanpham_id ORDER by sum(tbl_giohang.so_luong) DESC";
           $ketquatruyvan = $conn->query($sql);
           if ($ketquatruyvan->num_rows > 0) {
             $i = 0;

@@ -122,9 +122,9 @@
                     <i class="ti-search" style="cursor: pointer;" onclick="openSearch()"></i>
                 </a>
                 <div id="search-id" class="subnav">
-                    <form action="timkiem.php" method="get">
+                    <form action="/Nhom14/timkiem.php" method="get">
                         <div class="search-container">
-                            <input class="search-input" size="100" type="text" name="search" placeholder="Bạn đang tìm kiếm?" />
+                            <input class="search-input" size="110" type="text" name="search" placeholder="Bạn đang tìm kiếm?" />
                             <button type="submit" class="search-submit">
                                 <i class="ti-search"></i>
 
@@ -175,6 +175,13 @@
             <div class="cart-btn">
                 <a class="header-btn" href="/Nhom14/thanh_toan/giohang.php">
                     <i class="fa-solid fa-cart-shopping"></i>
+                    <div class="number-cart"> 
+                        <?php
+                        if (isset($_SESSION['login']) && $_SESSION['login'] == 1) {
+                            echo "" . $_SESSION['gio_hang']['tong_so'] . "";
+                        }
+                        ?>
+                    </div>
                 </a>
             </div>
         </div>

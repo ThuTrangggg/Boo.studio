@@ -39,7 +39,7 @@ if(!isset($_SESSION['login']))
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Danh sách khách hàng | <a href="khachhang_themmoi.php">Thêm mới</a>
+                                Danh sách khách hàng
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">

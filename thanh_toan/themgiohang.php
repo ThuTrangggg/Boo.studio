@@ -35,6 +35,6 @@ foreach ($_SESSION["gio_hang"]["mat_hang"] as $gioHang) {
 }
 ?>
 <script type="text/javascript">
-	alert("Thêm thành công");
+	// alert("Thêm thành công");
 	location = 'giohang.php';
 </script>

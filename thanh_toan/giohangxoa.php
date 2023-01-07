@@ -4,12 +4,11 @@
 </head>
 <?php 
 session_start();
-if(isset($_GET['id'])&&isset($_SESSION['giohang']))
+if(isset($_GET['id'])&&isset($_SESSION['gio_hang']['mat_hang']))
 {
 	$id = $_GET['id'];
-	unset($_SESSION['giohang'][$id]);
+	unset($_SESSION['gio_hang']['mat_hang'][$id]);
  	echo"<script>
-    alert('Xoá thành công');
     window.location = 'giohang.php';
     </script>"; 
 }

@@ -27,11 +27,11 @@ if ($result->num_rows > 0) {
         $_SESSION["gio_hang"]["tong_tien"] = 0;
         $_SESSION['userId'] = $nguoiDungId;
         // $_SESSION['admin'] = $nguoiDungAdmin;
-        echo "
-                <script type='text/javascript'>
-                    window.alert('Bạn đã đăng nhập thành công');
-                </script>
-            ";
+        // echo "
+        //         <script type='text/javascript'>
+        //             window.alert('Bạn đã đăng nhập thành công');
+        //         </script>
+        //     ";
 
         echo "
                 <script type='text/javascript'>

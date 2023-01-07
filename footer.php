@@ -56,7 +56,7 @@ handleButtonClick = () => {
     <div title="Về đầu trang" class="contact">
         <i 	id="open-button" class="open open--on fa-solid fa-circle-plus" onclick="handleButtonClick()"></i>
         <ul id="toolbar"class="toolbar">
-            <li ><a  href="">
+            <li ><a  href="tel:09">
             <i class="fa-solid fa-phone"></i>
             Gọi ngay
             </a></li>
@@ -84,22 +84,14 @@ handleButtonClick = () => {
             <div class="row">
                 <div class="col-lg-4 col-sm-6">
                     <div class="d-flex">
-                        <div class="footer_header" style="margin-left: 25px; font-size: 14px">
-                        <p>Đăng ký nhận thông tin</p>
-                        </div>  
-                        <form class="form-inline" onsubmit="return dangkyemail()">
-                            
-                            <input type="email" class="form-control" size="50" placeholder="Email Address">
-                            <br>
-                            <div class="row" style="margin: 20px 0 0 30px;">
-                                <input type="checkbox" class="col-lg-1" style="font-size:14px;     width: 14px;" >
-                                <label for="" class="col-lg-8" style="display:inline; color:#575757; font-weight:100; font-size:12px; padding: 0; text-align:left; margin: 0 18px 0 10px">
-                                Tôi đồng ý nhận các bản tin thương mại từ Boo.vn qua email cá nhân và các phương tiện khác.
-                                </label>
-                                <button type="submit" class="btn btn-danger col-lg-2" style="background-color:black; border:none;">Đăng ký</button>
-                            </div>
+                        <div class="footer_header" style="font-size: 14px">
+                        <p>Gửi ý kiến phản hồi về Boo.vn</p>
+                        </div> 
+                        <form class="" style="    display: inline-flex;" onsubmit="mail" action="mailto: trangtrangg002@gmail.com">
+                            <textarea style="margin: 0 20px 0 0;" class="" name="" id="" cols="60" rows="2"></textarea>
+                            <button class="" type="submit" class="btn btn-danger col-lg-2" style="background-color:black; border:none;">GỬI</button>
                         </form>
-                        <div class="footer_detail" style="letter-spacing:0; line-height:20px; font-size:13px; margin:20px 0 0 25px">
+                        <div class="footer_detail" style="letter-spacing:0; line-height:20px; font-size:13px; margin: 25px 0 0 0">
                             <p> Công ty Cổ phần Thương mại Boo </p>
                             <p>
                             Trụ sở: 19A Đặng Trần Côn, P.Quốc Tử Giám, Q.Đống Đa, Tp.Hà Nội, Việt Nam.
