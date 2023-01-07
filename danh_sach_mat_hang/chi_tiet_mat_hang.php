@@ -5,7 +5,7 @@ session_start();; ?>
 <!DOCTYPE html>
 <html lang="li">
 
-<head>
+<!-- <head>
     <link rel="stylesheet" href="css/sp.css">
     <link rel="icon" type="image/x-icon" href="./image/logo.jpg">
     <title>BOO | DANH MỤC SẢN PHẨM</title>
@@ -38,7 +38,7 @@ session_start();; ?>
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-</head>
+</head> -->
 
 <body>
     <?php
@@ -100,26 +100,31 @@ session_start();; ?>
                                 <?php echo number_format($row1["gia"], 0, '', '.'); ?>₫
                             </h3>
                             <?php
-                                if (isset($row1['gia_ban_khuyen_mai'])) {
-                                ?>
-                                    <div style="text-decoration:line-through; color: #F5A623; margin-left: 50px; text-align: right" class="col-lg-6"><?php echo number_format($row1['gia'], 0, '', '.') . 'đ'; ?></div>
-                                    <div class="col-lg-6" style="color: red;  text-align: left"><?php echo number_format($row1['gia_ban_khuyen_mai'], 0, '', '.') . 'đ'; ?></div>
-                                <?php
-                                } else { ?> <p> <?php echo number_format($row1['gia'], 0, '', '.') . 'đ';} ?></p>
+                            if (isset($row1['gia_ban_khuyen_mai'])) {
+                            ?>
+                                <div style="text-decoration:line-through; color: #F5A623; margin-left: 50px; text-align: right" class="col-lg-6"><?php echo number_format($row1['gia'], 0, '', '.') . 'đ'; ?></div>
+                                <div class="col-lg-6" style="color: red;  text-align: left"><?php echo number_format($row1['gia_ban_khuyen_mai'], 0, '', '.') . 'đ'; ?></div>
+                            <?php
+                            } else { ?> <p> <?php echo number_format($row1['gia'], 0, '', '.') . 'đ';
+                                            } ?></p>
                         </h5>
 
                         <h6 style="margin-left: 50px">TÌNH TRẠNG: <?php if ($row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] > 0) echo "CÒN HÀNG";
                                                                     else echo "HẾT HÀNG"; ?></h6>
 
 
-                        <form class="form-inline" method="post" action="giohang.php" id="form_them_gio_hang">
+                        <form class="form-inline" method="post" action="../thanh_toan/themgiohang.php" id="form_them_gio_hang">
                             <div class="form-floating mb-3">
                                 <input style="margin-left: 50px" class="form-control" id="so_luong" name="so_luong" placeholder="Số lượng" type="number" value="1" min="0" max="<?= $row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] ?>">
 
                             </div>
+                            <select name="size" id="">
+                                <option  value="S">S</option>
+                                <option value="M">M</option>
+                            </select>
                             <input type="hidden" value="<?= $row1["sanpham_id"] ?>" name="sanpham_id" />
                             <input type="hidden" value="<?= $row1["ten_sanpham"] ?>" name="ten_sanpham" />
-                            <input type="hidden" value="<?= $row1["gia"] ?>" name="gia" />
+                            <input type="hidden" value="<?= $row1["gia_ban_khuyen_mai"] ?>" name="gia_ban_khuyen_mai" />
                             <input type="hidden" value="<?= $row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] ?>" name="ton_kho" />
                             <input type="hidden" value="<?php if ($row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] > 0) echo "Còn hàng";
                                                         else echo "Hết hàng"; ?>" name="tinh_trang" />

@@ -6,7 +6,7 @@ include("../header.php"); ?>
 <!DOCTYPE html>
 <html lang="vi">
 
-<head>
+<!-- <head>
     <title> BOO | GIỎ HÀNG</title>
     <meta name="description" content="rau sạch, rau sống, rau củ quả tươi, cá tươi, thịt sạch, thịt tươi">
 
@@ -42,38 +42,38 @@ include("../header.php"); ?>
         img[alt="www.000webhost.com"] {
             display: none;
         }
-    </style>
+    </style> -->
 
-    <!--    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
     <script type="text/javascript"
         src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
      -->
-    <script type="text/javascript">
-        function validateForm() {
-            var name = document.forms["form_thanh_toan"]["ten_thanh_toan"].value;
-            var phone = document.forms["form_thanh_toan"]["dien_thoai"].value;
-            var address = document.forms["form_thanh_toan"]["dia_chi"].value;
+<script type="text/javascript">
+    function validateForm() {
+        var name = document.forms["form_thanh_toan"]["ten_thanh_toan"].value;
+        var phone = document.forms["form_thanh_toan"]["dien_thoai"].value;
+        var address = document.forms["form_thanh_toan"]["dia_chi"].value;
 
-            if (name.trim() == "") {
-                alert("Nhập tên thanh toán");
-                document.forms["form_thanh_toan"]["ten_thanh_toan"].focus();
-                return false;
-            }
-
-
-            if (address.trim() == "") {
-                alert("Nhập địa chỉ của bạn");
-                document.forms["form_thanh_toan"]["dia_chi"].focus();
-                return false;
-            }
-            if (address == "") {
-                alert("Nhập địa chỉ của bạn");
-                document.forms["form_thanh_toan"]["dia_chi"].focus();
-                return false;
-            }
-
+        if (name.trim() == "") {
+            alert("Nhập tên thanh toán");
+            document.forms["form_thanh_toan"]["ten_thanh_toan"].focus();
+            return false;
         }
-    </script>
+
+
+        if (address.trim() == "") {
+            alert("Nhập địa chỉ của bạn");
+            document.forms["form_thanh_toan"]["dia_chi"].focus();
+            return false;
+        }
+        if (address == "") {
+            alert("Nhập địa chỉ của bạn");
+            document.forms["form_thanh_toan"]["dia_chi"].focus();
+            return false;
+        }
+
+    }
+</script>
 </head>
 
 <body>
@@ -88,6 +88,8 @@ include("../header.php"); ?>
                     <tr>
                         <th>STT</th>
                         <th>Sản phẩm</th>
+                        <th>Hình ảnh</th>
+                        <th>Size</th>
                         <th>Giá</th>
                         <th>Số lượng</th>
                         <th>Thành tiền</th>
@@ -97,24 +99,25 @@ include("../header.php"); ?>
                         <?php
                         $stt = 0;
                         $tongtien = 0;
-                        if (isset($_SESSION['giohang'])) {
-
-                            foreach ($_SESSION['giohang'] as $key => $row) {
+                        $_SESSION["gio_hang"]["tong_so"] = 0;
+                            foreach ($_SESSION['gio_hang']["mat_hang"] as $key => $row) {
                                 $stt = $stt + 1;
                                 $thanhtien = $row['so_luong'] * $row['gia'];
                                 $tongtien = $thanhtien + $tongtien;
-
                         ?>
                                 <tr>
-                                    <td><?php echo $stt; ?></td>
-                                    <td><a href="sanpham.php?id="><?php echo $row['ten_sanpham'] ?></a></td>
+                                    
+                                    <td><?php echo $stt?></td>
+                                    <td><a href="../danh_sach_mat_hang/chi_tiet_mat_hang.php?id=<?php echo $row['sanpham_id']?>"><?php echo $row['ten_sanpham'] ?></a></td>
+                                    <td><img height="100px" src="<?=$row['anh']?>"></td>
+                                    <td><?php echo $row['size'] ?> </td>
                                     <td><?php echo number_format($row['gia']) ?> đ</td>
                                     <td><input style="width: 65px" onkeyup="suagiohang(<?php echo $key; ?>)" id="soluong<?php echo $key; ?>" value="<?php echo $row['so_luong'] ?>"></td>
                                     <td><?php echo number_format($thanhtien) ?> đ</td>
                                     <td><a class="btn btn-danger" href="giohangxoa.php?id=<?php echo $key ?>">Xóa</a></td>
                                 </tr>
                         <?php }
-                        } ?>
+                         ?>
                         <tr>
                             <td colspan="6" class="text-center">
                                 Tổng tiền: <strong class="text-primary"><?php echo number_format($tongtien) ?> đ</strong>

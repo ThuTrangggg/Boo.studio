@@ -147,7 +147,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Thông tin tài khoản</a></li>
-                        <li><a href="#">Quản lý website</a></li>
+                        <li><a href="/Nhom14/admin/index.php">Quản lý website</a></li>
                         <li><a href="/Nhom14/sign_log_in/dang_xuat.php">Đăng xuất</a></li>
                     <?php
                 } elseif (isset($_SESSION['login']) && $_SESSION['login'] == 1 && $_SESSION['role_id'] == 2) {
