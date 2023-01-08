@@ -5,13 +5,13 @@ session_start();; ?>
 <!DOCTYPE html>
 <html lang="li">
 
-<!-- <head>
+<head>
     <link rel="stylesheet" href="css/sp.css">
     <link rel="icon" type="image/x-icon" href="./image/logo.jpg">
     <title>BOO | DANH MỤC SẢN PHẨM</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Nhom14/assets/css/styles.css">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -19,6 +19,8 @@ session_start();; ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/product-item.css">
+    <link rel="stylesheet" type="text/css" href="css/sach-moi-tuyen-chon.css">
     <script type="text/javascript" src="js/main.js"></script>
     <link rel="stylesheet" href="fontawesome_free_5.13.0/css/all.css">
 
@@ -38,14 +40,14 @@ session_start();; ?>
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-</head> -->
+</head>
 
 <body>
     <?php
+    include("../connect.php");
     $sanpham_id = $_GET['id'];
-    $sql1 = "SELECT tbl_sanpham.sanpham_id,tbl_sanpham.loaisanpham_id, 
-    tbl_sanpham.ten_sanpham,tbl_sanpham.anh,tbl_sanpham.gia, 
-    tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0),tbl_sanpham.gia_ban_khuyen_mai
+    $sql1 = "SELECT tbl_sanpham.sanpham_id,tbl_sanpham.loaisanpham_id,tbl_sanpham.gia_ban_khuyen_mai,tbl_sanpham.mo_ta, 
+    tbl_sanpham.ten_sanpham,tbl_sanpham.anh,tbl_sanpham.gia, tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0) 
     FROM tbl_sanpham 
     LEFT JOIN tbl_giohang ON tbl_sanpham.sanpham_id=tbl_giohang.sanpham_id 
     WHERE tbl_sanpham.sanpham_id='" . $sanpham_id . "' ";
@@ -56,7 +58,7 @@ session_start();; ?>
     $row1 = mysqli_fetch_array($kq);
 
     $loaisanpham_id = $row1["loaisanpham_id"];
-
+    
     $sql2 =  "SELECT * FROM tbl_loaisanpham WHERE loaisanpham_id = '" . $loaisanpham_id . "' ";
     $loai_sanpham = mysqli_query($ket_noi, $sql2);
     $row2 = mysqli_fetch_array($loai_sanpham);
@@ -66,7 +68,7 @@ session_start();; ?>
     ?>
     <!-- breadcrumb  -->
     <section class="breadcrumbbar">
-        <div class="container" style="margin-top: 50px;">
+        <div class="container"style="margin-top: 50px;">
             <ol class="breadcrumb mb-0 p-0 bg-transparent">
                 <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
                 <li class="breadcrumb-item"><a href="#"><?php echo $row2["ten_loaisanpham"]; ?></a></li>
@@ -95,43 +97,105 @@ session_start();; ?>
 
                         <h2 style="margin-left: 50px"><?php echo $row1["ten_sanpham"]; ?></h2>
 
-                        <h5 style="margin-left: 50px">GIÁ BÁN:
-                            <h3 style="color: #F5A623; margin-left: 50px;">
-                                <?php echo number_format($row1["gia"], 0, '', '.'); ?>₫
+                        <h5 style="margin-left: 50px;font-size: 24px; ">GIÁ BÁN:
+                        
+                        <?php
+                               if (isset($row1['gia_ban_khuyen_mai'])) {
+                                ?>
+                                    <div class="row" style= "margin-top:15px">
+
+                                        <div style="text-decoration:line-through; color: #F5A623; margin-left:17px; text-align: right; font-weight:bold; " class=""><?php echo number_format($row1['gia'], 0, '', '.') . 'đ'; ?></div>
+                                        <div class="" style="color: red;font-weight: bold;text-align: left;margin-left: 28px;  "><?php echo number_format($row1['gia_ban_khuyen_mai'], 0, '', '.') . 'đ'; ?></div>
+                                    </div>
+                                <?php
+                                } else { ?> 
+                            <h3 style="color: #f68634; margin-left: 50px;font-weight:bold">
+                                <?php echo number_format($row1["gia"], 0, '', '.');} ?>
                             </h3>
-                            <?php
-                            if (isset($row1['gia_ban_khuyen_mai'])) {
-                            ?>
-                                <div style="text-decoration:line-through; color: #F5A623; margin-left: 50px; text-align: right" class="col-lg-6"><?php echo number_format($row1['gia'], 0, '', '.') . 'đ'; ?></div>
-                                <div class="col-lg-6" style="color: red;  text-align: left"><?php echo number_format($row1['gia_ban_khuyen_mai'], 0, '', '.') . 'đ'; ?></div>
-                            <?php
-                            } else { ?> <p> <?php echo number_format($row1['gia'], 0, '', '.') . 'đ';
-                                            } ?></p>
+                            
                         </h5>
 
-                        <h6 style="margin-left: 50px">TÌNH TRẠNG: <?php if ($row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] > 0) echo "CÒN HÀNG";
+                    
+                        <h6 style="margin-left: 50px; font-weight:bold">TÌNH TRẠNG: <?php  if ($row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] > 0) echo "CÒN HÀNG";
                                                                     else echo "HẾT HÀNG"; ?></h6>
 
 
                         <form class="form-inline" method="post" action="../thanh_toan/themgiohang.php" id="form_them_gio_hang">
+                            
+                            <div class="product-content-right-size" style="margin-left:50px"> 
+                                <select name="size" id=""> 
+                                    <option value="Size">Size</option>
+                                    <option value="S">S</option>
+                                    <option value="M">M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                    <option value="XXL">XXL</option>
+                                </select>
+                            </div>
                             <div class="form-floating mb-3">
                                 <input style="margin-left: 50px" class="form-control" id="so_luong" name="so_luong" placeholder="Số lượng" type="number" value="1" min="0" max="<?= $row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] ?>">
 
                             </div>
-                            <select name="size" id="">
-                                <option  value="S">S</option>
-                                <option value="M">M</option>
-                            </select>
+                                
                             <input type="hidden" value="<?= $row1["sanpham_id"] ?>" name="sanpham_id" />
                             <input type="hidden" value="<?= $row1["ten_sanpham"] ?>" name="ten_sanpham" />
-                            <input type="hidden" value="<?= $row1["gia_ban_khuyen_mai"] ?>" name="gia_ban_khuyen_mai" />
+                            <input type="hidden" value="<?= $row1["gia"] ?>" name="gia" />
                             <input type="hidden" value="<?= $row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] ?>" name="ton_kho" />
                             <input type="hidden" value="<?php if ($row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] > 0) echo "Còn hàng";
-                                                        else echo "Hết hàng"; ?>" name="tinh_trang" />
-                            <input type="submit" id="<?= $row1["sanpham_id"] ?>" class="button-capnhat text-uppercase offset-md-4 btn btn-warning mb-4" name="btnSubmit" value="Thêm vào giỏ hàng " onclick="addtocard(<?= $row1["sanpham_id"] ?>)">
+                                                        else echo "Hết hàng"; ?>" name="tinh_trang"/>
+                            <input id="<?= $row1["sanpham_id"] ?>" 
+                            class="button-capnhat text-uppercase offset-md-1 btn btn-warning mb-4"
+                            name="btnSubmit" value="Thêm vào giỏ hàng" onclick="addtocard(<?= $row1["sanpham_id"] ?>)">
+                           
                         </form>
+                <!--Tab-->
+                
+                <div class="tab" style="margin-left:50px; margin-top:20px ;border:solid;border-width: 1px;" >
+                    <div class="tab-links" style="display:flex;">               
+                        <div class="tab-links-title mota" style="cursor:pointer;padding:10px 95px 2px 30px; ">
+                            <p>MÔ TẢ</p>    
+                        </div>
+                        <div class="tab-links-title chinhsach" style="cursor:pointer;padding:10px 10px 2px;">
+                            <p>CHÍNH SÁCH GIAO HÀNG & BẢO HÀNH</p>    
+                        </div>
                     </div>
+                    <div class="tab-content" style="padding:0px 10px 10px 15px;">
+                        <div class="tab-content-mota" style="display:none;">
+                            <h7 style="font-size:14px; word-spacing:0.09cm; margin-top:auto ;"><?php echo $row1["mo_ta"]; ?></h7>
+                        </div>
+                        <div class="tab-content-chinhsach" style="display:none;">
+                       <br> Giao hàng</br>
 
+                       <br> Hà Nội & Hồ Chí Minh	25.000đ </br>
+                       <br> Các tỉnh khác	35.000đ </br>
+                       <br> Free ship đơn hàng trên 200.000đ </br>	 
+                       <br> <br>Đổi hàng</br>
+
+                        <br>- Đổi hàng trong vòng 15 ngày trên toàn quốc (áp dụng sản phẩm nguyên giá)</br>
+
+                        <br>- Bảo hành trong 90 ngay với các lỗi kỹ thuật</br>
+
+                        <br>- Bảo hành hình in trong 365 ngày</br>
+                        </br>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    const mota = document.querySelector(".mota")
+                    const chinhsach = document.querySelector(".chinhsach")
+                    if (chinhsach){
+                        chinhsach.addEventListener("click",function(){
+                            document.querySelector(".tab-content-chinhsach").style.display="block"
+                            document.querySelector(".tab-content-mota").style.display="none"
+                        })  
+                    }
+                    if (mota){
+                        mota.addEventListener("click",function(){
+                            document.querySelector(".tab-content-mota").style.display="block"
+                            document.querySelector(".tab-content-chinhsach").style.display="none"
+                        })  
+                    }
+                </script>
                 </div>
             </div>
         </div>
@@ -141,22 +205,22 @@ session_start();; ?>
     <!-- khối sản phẩm tương tự -->
     <section class="_1khoi spmoi">
         <div class="container-fluid">
-            <div class="noidung bg-white" style=" width: 100%;">
-                <!-- <div class="row"> -->
-                <!--header-->
-                <!-- <div class="sptt-ttl">
-                        <div class="header text-uppercase">Sản phẩm tương tự</div> 
-                    </div>
-                </div> -->
-                <div class="khoisanpham row" style="padding-bottom: 2rem;">
+        <div class="text-uppercase" style="font-weight:bold;font-size:large;margin:0 0 10px 6px;">Sản phẩm tương tự</div>
+        <div class="noidung bg-white" style=" width: 100%;">
+            <!--<div class="row">-->
+
+                <div class="khoisanpham" style="padding-bottom: 200px; display:flex;">
                     <!-- 1 sản phẩm -->
                     <?php
                     $sql = "SELECT * FROM tbl_sanpham where loaisanpham_id='" . $loaisanpham_id . "'";
                     $kq = mysqli_query($ket_noi, $sql);
                     while ($row = mysqli_fetch_array($kq)) {; ?>
-                        <div class="card col-md-">
-                            <a href="sanpham.php?id=<?php echo $row["sanpham_id"]; ?>" class="motsanpham" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $row["ten_sanpham"]; ?>">
-                                <img class="card-img-top anh" style="width: 40%" src="<?php echo $row["anh"]; ?>" style="width: 23px;height: 30px" alt="<?php echo $row["anh"]; ?>">
+                        <div class="card col-md-" style="margin:0px 6px;">
+                            <a href="/Nhom14/danh_sach_mat_hang/chi_tiet_mat_hang.php?id=<?php echo $row["sanpham_id"]; ?>" 
+                            class="motsanpham" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="bottom" 
+                            title="<?php echo $row["ten_sanpham"]; ?>">
+                                <img class="card-img-top anh" style="width: 100%" src="<?php echo $row["anh"]; ?>" 
+                                style="width: 23px;height: 30px" alt="<?php echo $row["anh"]; ?>">
 
                                 <div class="card-body noidungsp">
                                     <h6 class="card-title ten"><?php echo $row["ten_sanpham"]; ?></h6>

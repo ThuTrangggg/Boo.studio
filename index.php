@@ -8,9 +8,27 @@ include("connect.php");
 
   <div id="content wrapper">
 
-    <div id="slider"></div>
+    <div id="slider">
+      <div class="slick-slider" style="height: 100%;">
+          <img  src="https://cdn2.boo.vn/media/wysiwyg/z3833152554507_570e6b6fbd2f912e2074461560443cf3.jpg" alt="">
+          <img  src="https://cdn2.boo.vn/media/wysiwyg/banner_speed_up_web.JPG" alt="">
+          <img src="https://cdn2.boo.vn/media/wysiwyg/z3833152087189_ad3ff60603748103cfba20de3aa6d872.jpg" alt="">
+      </div>
+    </div>
+    <script>
+    $(document).ready(function() {
+      $('.slick-slider').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplaySpeed: 100,
+        prevArrow: "<button type='button' style='position: absolute; left: 10px; color: #fff' class='slick-prev pull-left'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
+        nextArrow: "<button type='button' style='position: absolute; right: 10px; color: #fff' class='slick-next pull-right'><i class='fa fa-angle-right' aria-hidden='true'></i></button>"
+      });
+    });
+  </script>
     <div class="first-row " style="margin-top: 100px;">
-
+dsadsd
     </div>
     <div class="second row" style="margin-right: 30px; padding-left:80px">
       <div class="col-sm-2">

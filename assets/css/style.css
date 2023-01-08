@@ -202,9 +202,17 @@ a:visited{
 #slider{
 	position: relative;
     /* margin-top: 25px; */
-    padding-top:20%;
-    background: url('https://cdn2.boo.vn/media/wysiwyg/z3833152554507_570e6b6fbd2f912e2074461560443cf3.jpg') top center /cover no-repeat;
-	height: 900px;
+	height: 800px;
+}
+
+.slider{
+	height: 100%;
+}
+
+.slider img{
+	object-fit: cover;
+    height: 100%;
+    width: 100%;
 }
 
 .mySlides{ width:100%}
