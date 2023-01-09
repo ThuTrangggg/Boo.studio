@@ -89,7 +89,7 @@ handleButtonClick = () => {
                         </div> 
                         <form class="" style="    display: inline-flex;" onsubmit="mail" action="mailto: trangtrangg002@gmail.com">
                             <textarea style="margin: 0 20px 0 0;" class="" name="" id="" cols="60" rows="2"></textarea>
-                            <button class="" type="submit" class="btn btn-danger col-lg-2" style="background-color:black; border:none;">GỬI</button>
+                            <button class="" type="submit" class="btn btn-danger col-lg-2" style="background-color:black; color:#fff; border:none; width: 70px;">GỬI</button>
                         </form>
                         <div class="footer_detail" style="letter-spacing:0; line-height:20px; font-size:13px; margin: 25px 0 0 0">
                             <p> Công ty Cổ phần Thương mại Boo </p>

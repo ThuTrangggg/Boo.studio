@@ -146,7 +146,7 @@
                         <i class="fa-regular fa-user" style="color: red"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Thông tin tài khoản</a></li>
+                        <li><a href="/Nhom14/thongtintaikhoan.php">Thông tin tài khoản</a></li>
                         <li><a href="/Nhom14/admin/index.php">Quản lý website</a></li>
                         <li><a href="/Nhom14/sign_log_in/dang_xuat.php">Đăng xuất</a></li>
                     <?php
@@ -157,6 +157,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Thông tin tài khoản</a></li>
+                            <li><a href="/Nhom14/lichsumuahang.php">Lịch sử mua hàng</a></li>
                             <li><a href="/Nhom14/sign_log_in/dang_xuat.php">Đăng xuất</a></li>
                         <?php
                     } else {
