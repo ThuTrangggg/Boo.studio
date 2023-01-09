@@ -1,10 +1,12 @@
 <?php
-include $_SERVER["DOCUMENT_ROOT"] . "/Nhom14/header.php"; ?>
+include $_SERVER["DOCUMENT_ROOT"] . "/Nhom14/header.php";
+
+session_start();; ?>
 <!DOCTYPE html>
 <html lang="li">
 
 <head>
-    <!-- <link rel="stylesheet" href="css/sp.css"> -->
+    <link rel="stylesheet" href="css/sp.css">
     <link rel="icon" type="image/x-icon" href="./image/logo.jpg">
     <title>BOO | DANH MỤC SẢN PHẨM</title>
     <meta charset="UTF-8">
@@ -37,7 +39,13 @@ include $_SERVER["DOCUMENT_ROOT"] . "/Nhom14/header.php"; ?>
     <link rel="icon" type="image/png" sizes="16x16" href="anhdanhmuc/Logo.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-
+    <style>
+        .mota_hover:hover,
+        .chinhsach_hover:hover,
+        .fa-regular fa-heart:hover {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -95,19 +103,19 @@ include $_SERVER["DOCUMENT_ROOT"] . "/Nhom14/header.php"; ?>
 
                         <h2 style="margin-left: 50px"><?php echo $row1["ten_sanpham"]; ?></h2>
 
-                        <h5 style="margin-left: 50px;font-size: 24px; ">GIÁ BÁN:
+                        <h5 style="margin-left: 50px;font-size: 24px; margin-top:20px ;">GIÁ BÁN:
 
                             <?php
                             if (isset($row1['gia_ban_khuyen_mai'])) {
                             ?>
                                 <div class="row" style="margin-top:15px">
 
-                                    <div style="text-decoration:line-through; color: #F5A623; margin-left:17px; text-align: right; font-weight:bold; " class=""><?php echo number_format($row1['gia'], 0, '', '.') . 'đ'; ?></div>
+                                    <div style="text-decoration:line-through; color: black; margin-left:17px; text-align: right; font-weight:bold; " class=""><?php echo number_format($row1['gia'], 0, '', '.') . 'đ'; ?></div>
                                     <div class="" style="color: red;font-weight: bold;text-align: left;margin-left: 28px;  "><?php echo number_format($row1['gia_ban_khuyen_mai'], 0, '', '.') . 'đ'; ?></div>
                                 </div>
                             <?php
                             } else { ?>
-                                <h3 style="color: #f68634; margin-left: 50px;font-weight:bold">
+                                <h3 style="color: black; margin-left: 50px;font-weight:bold">
                                 <?php echo number_format($row1["gia"], 0, '', '.');
                             } ?>
                                 </h3>
@@ -115,25 +123,23 @@ include $_SERVER["DOCUMENT_ROOT"] . "/Nhom14/header.php"; ?>
                         </h5>
 
 
-                        <h6 style="margin-left: 50px; font-weight:bold">TÌNH TRẠNG: <?php if ($row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] > 0) echo "CÒN HÀNG";
-                                                                                    else echo "HẾT HÀNG"; ?></h6>
+                        <h6 style="margin-left: 50px; font-weight:bold; margin-top:20px; font-size:14px;">TÌNH TRẠNG: <?php if ($row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] > 0) echo "CÒN HÀNG";
+                                                                                                                        else echo "HẾT HÀNG"; ?></h6>
 
+                        <form class="" method="post" action="/Nhom14/thanh_toan/themgiohang.php" id="form_them_gio_hang">
 
-                        <form class="form-inline" method="post" action="../thanh_toan/themgiohang.php" id="form_them_gio_hang">
-
-                            <div class="product-content-right-size" style="margin-left:50px">
-                                <select name="size" id="">
-                                    <option value="">Size</option>
+                            <div class="product-content-right-size mb-3" style="margin-left:50px; display: inline-block">
+                                <select name="size" id="" style=" 
+                                width: 150px;
+                                height: 36px; border-radius:20px;text-align:center;font-size:18px;">
+                                    <option value="Size">Size</option>
                                     <option value="S">S</option>
                                     <option value="M">M</option>
                                     <option value="L">L</option>
                                     <option value="XL">XL</option>
                                     <option value="XXL">XXL</option>
                                 </select>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input style="margin-left: 50px" class="form-control" id="so_luong" name="so_luong" placeholder="Số lượng" type="number" value="1" min="0" max="<?= $row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] ?>">
-
+                                <input style="margin-left: 50px" class="" id="so_luong" name="so_luong" placeholder="Số lượng" type="number" value="1" min="0" max="<?= $row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] ?>">
                             </div>
 
                             <input type="hidden" value="<?= $row1["sanpham_id"] ?>" name="sanpham_id" />
@@ -142,22 +148,29 @@ include $_SERVER["DOCUMENT_ROOT"] . "/Nhom14/header.php"; ?>
                             <input type="hidden" value="<?= $row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] ?>" name="ton_kho" />
                             <input type="hidden" value="<?php if ($row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] > 0) echo "Còn hàng";
                                                         else echo "Hết hàng"; ?>" name="tinh_trang" />
-                            <input type="submit" class="button-capnhat text-uppercase offset-md-1 btn btn-warning mb-4" name="btnSubmit" value="Thêm vào giỏ hàng">
+                            <div class="row" style="align-items: center;">
 
+                                <input type="submit" class="button-capnhat text-uppercase offset-md-1 btn" style="background-color: #000; border-radius: 40px; color:#fff;height: 36px; width: 152px;" name="btnSubmit" value="Thêm vào giỏ hàng">
+
+                                <button type="button" class="btn btn-info" style="width: 100px; height: 35px; margin-left: 40px; border-radius: 50px; background-color: #DAF9E6; color: #000; border: 1px solid #000;">MUA NGAY</button>
+                                <div class="like-btn" style="margin:15px; ">
+                                    <button <i class="fa-regular fa-heart" style="border: none; box-shadow: 0 2px 4px rgb(0 0 0 / 16%); border-radius: 20px; width: 30px; height: 30px; font-size: 18px; background-color: white;"></i></button>
+                                </div>
+                            </div>
                         </form>
                         <!--Tab-->
 
-                        <div class="tab" style="margin-left:50px; margin-top:20px ;border:solid;border-width: 1px;">
-                            <div class="tab-links" style="display:flex;">
-                                <div class="tab-links-title mota" style="cursor:pointer;padding:10px 95px 2px 30px; ">
-                                    <p>MÔ TẢ</p>
+                        <div class="tab" style="margin-left:50px; margin-top:9px ;border:solid;border-width: 1px;">
+                            <div class="tab-links" style="display:flex; border-bottom: solid;border-bottom-width:1px;">
+                                <div class="tab-links-title mota" style="cursor:pointer;padding:10px 95px 2px 30px;font-weight:bold; border-right:solid;border-right-width:1px; ">
+                                    <p class="mota_hover">MÔ TẢ</p>
                                 </div>
-                                <div class="tab-links-title chinhsach" style="cursor:pointer;padding:10px 10px 2px;">
-                                    <p>CHÍNH SÁCH GIAO HÀNG & BẢO HÀNH</p>
+                                <div class="tab-links-title chinhsach" style="cursor:pointer;padding:10px 10px 2px;font-weight:bold;">
+                                    <p class="chinhsach_hover">CHÍNH SÁCH GIAO HÀNG & BẢO HÀNH</p>
                                 </div>
                             </div>
-                            <div class="tab-content" style="padding:0px 10px 10px 15px;">
-                                <div class="tab-content-mota" style="display:none;">
+                            <div class="tab-content" style="padding:15px 10px 10px 15px; color:gray;">
+                                <div class="tab-content-mota">
                                     <h7 style="font-size:14px; word-spacing:0.09cm; margin-top:auto ;"><?php echo $row1["mo_ta"]; ?></h7>
                                 </div>
                                 <div class="tab-content-chinhsach" style="display:none;">
@@ -212,14 +225,21 @@ include $_SERVER["DOCUMENT_ROOT"] . "/Nhom14/header.php"; ?>
                     $sql = "SELECT * FROM tbl_sanpham where loaisanpham_id='" . $loaisanpham_id . "'";
                     $kq = mysqli_query($ket_noi, $sql);
                     while ($row = mysqli_fetch_array($kq)) {; ?>
-                        <div class="card col-md-4" style="margin:0px 6px;">
-                            <a href="/Nhom14/danh_sach_mat_hang/chi_tiet_mat_hang.php?id=<?php echo $row["sanpham_id"]; ?>" class="motsanpham" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $row["ten_sanpham"]; ?>">
+                        <div class="card col-md-" style="margin:0px 6px;">
+                            <a href="sanpham.php?id=<?php echo $row["sanpham_id"]; ?>" class="motsanpham" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $row["ten_sanpham"]; ?>">
                                 <img class="card-img-top anh" style="width: 100%" src="<?php echo $row["anh"]; ?>" style="width: 23px;height: 30px" alt="<?php echo $row["anh"]; ?>">
 
                                 <div class="card-body noidungsp">
                                     <h6 class="card-title ten"><?php echo $row["ten_sanpham"]; ?></h6>
-                                    <div class="gia d-flex align-items-baseline">
-                                        <div class="giamoi" style="color: #f68634"><?php echo number_format($row["gia"], 0, '', ','); ?>₫</div>
+                                    <div class="gia d-flex align-items-baseline" style="margin:auto;">
+                                        <?php
+                                        if (isset($row['gia_ban_khuyen_mai'])) {
+                                        ?>
+                                            <div style="text-decoration:line-through; color:black; " class="col-lg-6"><?php echo number_format($row['gia'], 0, '', '.') . 'đ'; ?></div>
+                                            <div class="col-lg-6" style="color: red; "><?php echo number_format($row['gia_ban_khuyen_mai'], 0, '', '.') . 'đ'; ?></div>
+                                        <?php
+                                        } else { ?> <p> <?php echo number_format($row['gia'], 0, '', '.') . 'đ';
+                                                    } ?></p>
                                     </div>
                                 </div>
                             </a>
@@ -229,6 +249,38 @@ include $_SERVER["DOCUMENT_ROOT"] . "/Nhom14/header.php"; ?>
             </div>
         </div>
     </section>
+
+
+    <!-- footer  -->
+
+
+    <!-- nut cuon len dau trang -->
+    <div class="fixed-bottom">
+        <div class="btn btn-warning float-right rounded-circle nutcuonlen" id="backtotop" href="#" style="background:#f68634;"><i class="fa fa-chevron-up text-white"></i></div>
+    </div>
+
+    <script language="javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+    <script type="text/javascript">
+        function addtocard(data1) {
+            //alert(id);
+            var so_luong1 = $("#so_luong").val();
+            //alert("Thêm");
+            $.ajax({
+                url: "themgiohang.php", // gửi ajax đến file result.php
+                type: "get", // chọn phương thức gửi là get
+                dateType: "text", // dữ liệu trả về dạng text
+                data: { // Danh sách các thuộc tính sẽ gửi đi
+                    id: data1,
+                    so_luong: so_luong1
+                },
+                success: function(result) {
+                    // Sau khi gửi và kết quả trả về thành công thì gán nội dung trả về
+                    // đó vào thẻ div có id = result
+                    alert(result);
+                }
+            });
+        }
+    </script>
 </body>
 <?php include("../footer.php"); ?>
 

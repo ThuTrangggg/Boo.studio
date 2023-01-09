@@ -3,8 +3,7 @@ session_start();
 $id = $_POST['sanpham_id'];
 $so_luong = $_POST['so_luong'];
 $size = $_POST['size'];
-echo $size;
-echo $so_luong;
+
 include('../connect.php');
 
 $sql = "SELECT * FROM tbl_sanpham WHERE sanpham_id = " . $id;
@@ -31,15 +30,12 @@ if ($so_luong == 0 || $so_luong == "") {
 	};
 }
 $_SESSION["gio_hang"]["tong_so"] = 0;
-$x= $_SESSION["gio_hang"]["mat_hang"][$id]["size"];
-$y= $_SESSION["gio_hang"]["mat_hang"][$id]["ten_sanpham"];
-echo $y;
-echo $x;
+
 foreach ($_SESSION["gio_hang"]["mat_hang"] as $gioHang) {
 	$_SESSION["gio_hang"]["tong_so"] += $gioHang["so_luong"];
 }
 ?>
 <script type="text/javascript">
 	// alert(".");
-	// location = 'giohang.php';
+	location = 'giohang.php';
 </script>

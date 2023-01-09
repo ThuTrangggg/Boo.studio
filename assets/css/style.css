@@ -202,17 +202,21 @@ a:visited{
 #slider{
 	position: relative;
     /* margin-top: 25px; */
-	height: 800px;
+	height: 850px;
 }
 
-.slider{
+#slider{
 	height: 100%;
 }
 
-.slider img{
+#slider img{
 	object-fit: cover;
     height: 100%;
     width: 100%;
+}
+
+#slider .slick-list{
+	height: 100%;
 }
 
 .mySlides{ width:100%}
@@ -222,6 +226,20 @@ a:visited{
 .image-button{ border:none;display:inline-block;padding:10px;height:50px;vertical-align:middle;overflow:hidden; color:#fff;background:#000;position:absolute; opacity:0.5;}
 .image-button:hover{color:#000;background-color:#ccc;}
 .display-container{position:relative}
+
+.slick-dots{
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%,0);
+	align-items: center;
+	justify-content: center;
+	gap: 0 20px;
+}
+
+.slick-dots button{
+	font-size: 10px;
+}
 
 .heading-slick{
 	display: inline;
@@ -258,6 +276,43 @@ a:visited{
 
 
 
+.list-items{
+	top: 40px;
+    left: 40px;
+	width: 80%
+}
+
+.list-items img{
+	object-fit: contain;
+}
+
+.list-items p{
+	text-transform: uppercase;
+	font-size: 40px;
+	margin-top: 8px;
+}
+
+.button-list-items{
+	position: absolute;
+    bottom: 24px;
+    right: 28px;
+    display: block;
+    width: 120px;
+    /* background-color: #000; */
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border: 2px solid #000;
+    color: #000;
+    font-weight: 600;
+    border-radius: 50px;
+}
+
+.button-list-items:hover{
+	cursor: pointer;
+	color: black;
+	opacity: 0.5;
+}
 
 #footer{
 	padding-top: 50px;
