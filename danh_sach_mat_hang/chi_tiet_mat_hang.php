@@ -131,7 +131,7 @@ session_start();; ?>
                             <div class="product-content-right-size mb-3" style="margin-left:50px; display: inline-block">
                                 <select name="size" id="" style=" 
                                 width: 150px;
-                                height: 36px; border-radius:20px;text-align:center;font-size:18px;">
+                                height: 36px; border-radius:20px;text-align:center;font-size:13px">
                                     <option value="Size">Size</option>
                                     <option value="S">S</option>
                                     <option value="M">M</option>
@@ -139,7 +139,7 @@ session_start();; ?>
                                     <option value="XL">XL</option>
                                     <option value="XXL">XXL</option>
                                 </select>
-                                <input style="margin-left: 50px" class="" id="so_luong" name="so_luong" placeholder="Số lượng" type="number" value="1" min="0" max="<?= $row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] ?>">
+                                <input style="margin-left: 50px; width:50px ;height:25px;font-size:13px;" class="" id="so_luong" name="so_luong" placeholder="Số lượng" type="number" value="1" min="0" max="<?= $row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] ?>">
                             </div>
 
                             <input type="hidden" value="<?= $row1["sanpham_id"] ?>" name="sanpham_id" />
@@ -150,7 +150,7 @@ session_start();; ?>
                                                         else echo "Hết hàng"; ?>" name="tinh_trang" />
                             <div class="row" style="align-items: center;">
 
-                                <input type="submit" class="button-capnhat text-uppercase offset-md-1 btn" style="background-color: #000; border-radius: 40px; color:#fff;height: 36px; width: 152px;" name="btnSubmit" value="Thêm vào giỏ hàng">
+                                <input type="submit" class="button-capnhat text-uppercase offset-md-1 btn" style="background-color: #000; border-radius: 40px; color:#fff;height: 36px; width: 152px; margin-left:64px;" name="btnSubmit" value="Thêm vào giỏ hàng">
 
                                 <button type="button" class="btn btn-info" style="width: 100px; height: 35px; margin-left: 40px; border-radius: 50px; background-color: #DAF9E6; color: #000; border: 1px solid #000;">MUA NGAY</button>
                                 <div class="like-btn" style="margin:15px; ">
@@ -225,8 +225,8 @@ session_start();; ?>
                     $sql = "SELECT * FROM tbl_sanpham where loaisanpham_id='" . $loaisanpham_id . "'";
                     $kq = mysqli_query($ket_noi, $sql);
                     while ($row = mysqli_fetch_array($kq)) {; ?>
-                        <div class="card col-md-" style="margin:0px 6px;">
-                            <a href="sanpham.php?id=<?php echo $row["sanpham_id"]; ?>" class="motsanpham" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $row["ten_sanpham"]; ?>">
+                        <div class="card col-md-2" style="margin:0px 1px;">
+                            <a href="/Nhom14/danh_sach_mat_hang/chi_tiet_mat_hang.php?id=<?php echo $row["sanpham_id"]; ?>" class="motsanpham" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $row["ten_sanpham"]; ?>">
                                 <img class="card-img-top anh" style="width: 100%" src="<?php echo $row["anh"]; ?>" style="width: 23px;height: 30px" alt="<?php echo $row["anh"]; ?>">
 
                                 <div class="card-body noidungsp">

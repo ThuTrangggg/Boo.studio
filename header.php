@@ -134,7 +134,7 @@
                 </div>
             </div>
             <div class="like-btn">
-                <a class="header-btn" href="">
+                <a class="header-btn" href="/Nhom14/wishlist/wishlist.php">
                     <i class="fa-regular fa-heart"></i>
                 </a>
             </div>
@@ -157,7 +157,7 @@
                             <i class="fa-solid fa-user"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Thông tin tài khoản</a></li>
+                            <li><a href="/Nhom14/thongtintaikhoan.php">Thông tin tài khoản</a></li>
                             <li><a href="/Nhom14/lichsumuahang.php">Lịch sử mua hàng</a></li>
                             <li><a href="/Nhom14/sign_log_in/dang_xuat.php">Đăng xuất</a></li>
                         <?php

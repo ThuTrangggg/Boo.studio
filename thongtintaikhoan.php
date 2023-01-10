@@ -91,7 +91,10 @@ include 'header.php';
 </head> -->
 
 <body>
-  <?php include("connect.php") ?>
+  <?php include("connect.php");
+  include("./thong_tin/slide_thongtin.php");
+  ?>
+  
 
     <section class="account-page my-3">
         <div class="container" style="margin-top: 150px;">

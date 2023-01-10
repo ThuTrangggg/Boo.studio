@@ -2,7 +2,7 @@
 session_start();
 if(isset($_SESSION['login']))
 {
-     include("connect.php");
+     include("config.php");
 ;?>
 <!DOCTYPE html>
 <html lang="vi">
@@ -57,7 +57,7 @@ if(isset($_SESSION['login']))
             <table class="table table-striped" style="margin-bottom: 50px;">
                 <tr>
                     <th>STT</th>
-                    <th>Mã vận đơn</th>
+                    <th>Mã chi tiết</th>
                     <th>Sản phẩm</th>
                     <th>Giá bán</th>
                     <th>Số lượng</th>

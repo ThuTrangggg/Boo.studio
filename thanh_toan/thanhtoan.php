@@ -62,6 +62,7 @@ if (isset($_SESSION['gio_hang']['tong_so']) > 0) {
         </div>
         <div class="col-lg-6">
             Tóm tắt đơn hàng
+            
         </div>
     </div>
     </form>

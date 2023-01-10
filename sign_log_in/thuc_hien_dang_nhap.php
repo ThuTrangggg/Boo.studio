@@ -5,7 +5,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/Nhom14/header.php";
 include("../connect.php");
 
 $email = $_POST['email'];
-$password = $_POST['password'];
+$password = md5($_POST['password']);
 $sql = "SELECT *FROM `tbl_khachhang` WHERE
  `email` = '" . $email . "' AND `mat_khau` = '" . $password . "' ";
 
