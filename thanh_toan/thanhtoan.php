@@ -4,7 +4,6 @@ include('../connect.php');
 
 ?>
 <?php
-var_dump($_SESSION['gio_hang']['tong_so']);
 if (isset($_SESSION['gio_hang']['tong_so']) > 0) {
     $sql = "SELECT * from tbl_khachhang WHERE khachhang_id = " . $_SESSION['userId'];
     $kq = mysqli_query($ket_noi, $sql);
@@ -62,7 +61,48 @@ if (isset($_SESSION['gio_hang']['tong_so']) > 0) {
         </div>
         <div class="col-lg-6">
             Tóm tắt đơn hàng
-            
+            <table class="" style="margin-bottom: -110px;">
+                    
+                    <tbody id="giohang" >
+                        <?php
+                        $stt = 0;
+                        $tongtien = 0;
+                        $_SESSION["gio_hang"]["tong_so"] = 0;
+                        foreach ($_SESSION['gio_hang']["mat_hang"] as $key => $row) {
+                            $stt = $stt + 1;
+                            $thanhtien = $row['so_luong'] * $row['gia'];
+                            $tongtien = $thanhtien + $tongtien;
+                            $_SESSION["gio_hang"]["tong_so"] += $row["so_luong"];
+                        ?>
+                            <tr style="border: solid lightgrey; border-width: 1px 0">
+                                <style>
+                                    td{
+                                        text-align: center;
+                                        padding: 10px 15px 15px 10px;
+                                        }
+                                </style>
+                                <td><img height="100px" src="<?= $row['anh'] ?>"></td>
+                                <td><a href="../danh_sach_mat_hang/chi_tiet_mat_hang.php?id=<?php echo $row['sanpham_id'] ?>"><?php echo $row['ten_sanpham'] ?></a></td>
+                                <td><?php echo $row['size'] ?> </td>
+                                <td><?php echo number_format($row['gia'],0,'','.') ?> đ</td>
+                                <td><input style="width: 65px" onkeyup="suagiohang(<?php echo $key; ?>)" id="soluong<?php echo $key; ?>" value="<?php echo $row['so_luong'] ?>"></td>
+                                <td><?php echo number_format($thanhtien,0,'','.') ?> đ</td>
+                            </tr>
+                        <?php }
+                        ?>
+                        <tr>
+                            <td colspan="8" class="text-center">
+                                Tổng tiền: <strong class="text-primary"><?php echo number_format($tongtien,0,'','.') ?> đ</strong>
+                                    </td>
+                            <td colspan="8">Vận chuyển
+                            <?php echo number_format(35000,0,'','.') ?>
+                            </td>
+                        </tr>
+                        <td style="border: 1px solid lightgrey; border-width: 1px 0">Tổng cộng 
+                        <p></p>
+                    </td>
+                    </tbody>
+                </table>
         </div>
     </div>
     </form>

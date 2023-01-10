@@ -16,8 +16,14 @@ if ($_SESSION['login'] != 1) {
         <div class="row">
             <div class="col-sm-2"></div>
             <div class="col-sm-8">
-                <table class="table table-striped" style="margin-bottom: 60px;">
-                    <tr>
+                <table class="" style="margin-bottom: -110px;">
+                    <tr style="border-bottom: solid;border-top: solid;border-color: lightgrey;border-width: 1px;" >
+                    <style>
+                                    th{
+                                        text-align: center;
+                                        line-height: 50px;
+                                        }
+                                </style>
                         <th>STT</th>
                         <th>Sản phẩm</th>
                         <th>Hình ảnh</th>
@@ -27,7 +33,7 @@ if ($_SESSION['login'] != 1) {
                         <th>Thành tiền</th>
                         <th>Xóa</th>
                     </tr>
-                    <tbody id="giohang">
+                    <tbody id="giohang" >
                         <?php
                         $stt = 0;
                         $tongtien = 0;
@@ -38,7 +44,13 @@ if ($_SESSION['login'] != 1) {
                             $tongtien = $thanhtien + $tongtien;
                             $_SESSION["gio_hang"]["tong_so"] += $row["so_luong"];
                         ?>
-                            <tr>
+                            <tr style="border-bottom: solid; border-width: 1px;border-color: lightgrey;">
+                                <style>
+                                    td{
+                                        text-align: center;
+                                        padding: 10px 15px 15px 10px;
+                                        }
+                                </style>
                                 <td><?php echo $stt ?></td>
                                 <td><a href="../danh_sach_mat_hang/chi_tiet_mat_hang.php?id=<?php echo $row['sanpham_id'] ?>"><?php echo $row['ten_sanpham'] ?></a></td>
                                 <td><img height="100px" src="<?= $row['anh'] ?>"></td>
@@ -57,12 +69,12 @@ if ($_SESSION['login'] != 1) {
                         </tr>
                     </tbody>
                 </table>
-                <hr><br><br><br>
+                <hr style="border: none;"><br><br><br>
                 <?php
                 if(isset($_SESSION['gio_hang']['tong_so']) && $_SESSION['gio_hang']['tong_so']>0){
-?>
-                    <div style="text-align:center; margin-bottom: 50px">
-                        <a class="btn btn-warning text-uppercase" href="thanhtoan.php">Thanh toán</a>
+                ?>
+                    <div style="text-align:center;margin-bottom: 50px;margin-top: 10px;">
+                        <a class="btn text-uppercase" style="background-color: #000; border-radius: 40px; color:#fff;height: 36px; width: 152px; margin-left:64px;" href="thanhtoan.php">Thanh toán</a>
                     </div>
                 <?php
             }elseif($_SESSION['gio_hang']['tong_so']==0){ ?>

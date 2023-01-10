@@ -22,7 +22,7 @@ $id = $_GET['id'];
                 }
                     ?>
                     <div class="col-sm-3">
-                        <div class="">
+                        <div class="" style="position: relative">
                             <div class="panel-body" style="padding: 0">
                                 <a href="/Nhom14/danh_sach_mat_hang/chi_tiet_mat_hang.php?id=<?= $matHang['sanpham_id'] ?>">
                                     <img src="<?php echo $matHang['anh'] ?>" class="img-responsive" style="width:100%; object-fit: contain" alt="Image">
@@ -42,6 +42,11 @@ $id = $_GET['id'];
                                 <?php
                                 } else { ?> <p> <?php echo number_format($matHang['gia'], 0, '', '.') . 'đ';
                                                 } ?></p>
+                            </div>
+
+                            <div class="row ">
+                                <col-sm-6>size</col-sm-6>
+                                <col-sm-6>Thêm giỏ hàng</col-sm-6>
                             </div>
                         </div>
                     </div>
