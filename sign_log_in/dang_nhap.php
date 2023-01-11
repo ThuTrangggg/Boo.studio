@@ -72,9 +72,7 @@
 
 ">Bạn chưa có tài khoản? <a style="color:black; 
 text-decoration:underline; 
-text-align: center;"
-
-href="dang_ky.php"> ĐĂNG KÝ</a></p>
+text-align: center;" href="dang_ky.php"> ĐĂNG KÝ</a></p>
 
 
 

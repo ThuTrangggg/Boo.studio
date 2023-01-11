@@ -254,11 +254,11 @@ session_start();; ?>
                      where sanpham_id='" . $sanpham_id . "'";
         $kq_fb = mysqli_query($ket_noi, $sql_fb);
         if ($kq_fb->num_rows > 0) {
-            ?>
-             <div style="border: 1px solid lightgray; border-bottom: 1px solid lightgrey; font-size: 16px;padding-left: 20px; ">
-                
-             <div style="color: #6f4400;    line-height: 39px;">
-             
+        ?>
+            <div style="border: 1px solid lightgray; border-bottom: 1px solid lightgrey; font-size: 16px;padding-left: 20px; ">
+
+                <div style="color: #6f4400;    line-height: 39px;">
+
                     Đánh giá sản phẩm
                     <i class="fa-regular fa-face-smile"></i>
                 </div>

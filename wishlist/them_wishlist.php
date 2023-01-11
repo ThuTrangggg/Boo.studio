@@ -26,7 +26,7 @@ $row = mysqli_fetch_assoc($query);
 $_SESSION["wishlist"]["tong_so_wishlist"] = 0;
 
 // foreach ($_SESSION["wishlist"]["mat_hang_wishlist"] as $wishlist) {
-// 	$_SESSION["wishlist"]["tong_so_wishlist"] += $wishlist["so_luong"];
+//  	$_SESSION["wishlist"]["tong_so_wishlist"] += $wishlist["so_luong"];
 // }
 ?>
 <script type="text/javascript">

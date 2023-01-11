@@ -10,32 +10,35 @@ if (isset($_SESSION['gio_hang']['tong_so']) > 0) {
     $tbl_khachhang = mysqli_fetch_array($kq);
 
 ?>
+
+
     <div class="container" style="margin-top: 150px;">
-
+<h1 style="font-size:35px">Đặt hàng</h1>
         <div class="col-lg-6">
-
-            <h1 align="center" style="margin-bottom: 20px">Thông tin thanh toán</h1>
+            <h1 align="center" style="margin-bottom: 20px; font-size:20px;
+             margin-left: -400px;
+            ">Địa chỉ giao hàng</h1>
             <form class="form form-horizontal" method="post" action="thuc_hien_thanh_toan.php" id="form_thanh_toan" onsubmit="return(validateForm());">
 
-                <div class="form-group">
-                    <div class="col-sm-12">
+                <div class="form-group" >
+                    <div class="col-sm-12" style="width: 75%">
                         <input type="text" class="form-control" name="ten_khachhang" id="ten_thanh_toan" placeholder="Tên khách hàng" value="<?php echo $tbl_khachhang['ten_khachhang'] ?>">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12" style="width: 75%">
                         <input type="text" class="form-control" name="email" id="email" placeholder="Địa chỉ email" value="<?php echo $tbl_khachhang['email'] ?>">
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12" style="width: 75%">
                         <input type="text" class="form-control" name="dia_chi" id="dia_chi" placeholder="Địa chỉ nhận hàng" value="<?php echo $tbl_khachhang['dia_chi'] ?>">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <select name="phuong_thuc_thanh_toan" class="form-control ">
+                        <select name="phuong_thuc_thanh_toan" class="form-control " style="width: 38%">
                             <option value="">Phương thức thanh toán</option>
                             <option value="ZaloPay"> Zalo Pay</option>
                             <option value="momo">Momo</option>
@@ -57,9 +60,10 @@ if (isset($_SESSION['gio_hang']['tong_so']) > 0) {
                                 <textarea class="form-control" cols="20" id="order_desc" name="order_desc" rows="2">Noi dung thanh toan</textarea>
                             </div> -->
 
-                <button type="submit" class="btn btn-primary" id="btnPopup">Thanh toán</button>
+                <button type="submit" class="btn btn-primary" id="btnPopup"
+                style="color:white; background:black;">Thanh toán</button>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6" style="font-size: 20px;">
             Tóm tắt đơn hàng
             <table class="" style="margin-bottom: -110px;">
                     
@@ -74,7 +78,7 @@ if (isset($_SESSION['gio_hang']['tong_so']) > 0) {
                             $tongtien = $thanhtien + $tongtien;
                             $_SESSION["gio_hang"]["tong_so"] += $row["so_luong"];
                         ?>
-                            <tr style="border: solid lightgrey; border-width: 1px 0">
+                            <tr style="border: inset lightgrey; border-width: 1px ">
                                 <style>
                                     td{
                                         text-align: center;
@@ -83,27 +87,44 @@ if (isset($_SESSION['gio_hang']['tong_so']) > 0) {
                                 </style>
                                 <td><img height="100px" src="<?= $row['anh'] ?>"></td>
                                 <td><a href="../danh_sach_mat_hang/chi_tiet_mat_hang.php?id=<?php echo $row['sanpham_id'] ?>"><?php echo $row['ten_sanpham'] ?></a></td>
-                                <td><?php echo $row['size'] ?> </td>
-                                <td><?php echo number_format($row['gia'],0,'','.') ?> đ</td>
-                                <td><input style="width: 65px" onkeyup="suagiohang(<?php echo $key; ?>)" id="soluong<?php echo $key; ?>" value="<?php echo $row['so_luong'] ?>"></td>
-                                <td><?php echo number_format($thanhtien,0,'','.') ?> đ</td>
+                                <td style="font-size: 0.875em; font-weight: bold;"> size
+                                    <?php echo $row['size'] ?>  </td>
+                                <td style="font-size: 0.875em; font-weight: bold"> số tiền
+                                    <?php echo number_format($row['gia'],0,'','.') ?>đ</td>
+                                <td style="font-size: 0.875em; font-weight: bold">số lượng
+                                    <input style="width: 30px" onkeyup="suagiohang(<?php echo $key; ?>)" id="soluong<?php echo $key; ?>" value=" <?php echo $row['so_luong'] ?>"></td>
+                                <td style="font-size: 0.875em; font-weight: bold">thành tiền
+                                    <?php echo number_format($thanhtien,0,'','.') ?>đ</td>
                             </tr>
                         <?php }
                         ?>
-                        <tr>
-                            <td colspan="8" class="text-center">
-                                Tổng tiền: <strong class="text-primary"><?php echo number_format($tongtien,0,'','.') ?> đ</strong>
+                      <tr>
+                            <td colspan="8" class="text-center" style="color:black; position: relative; text-align:left; ">
+                                Tổng tiền: 
+                                <strong class="text-primary"><?php echo number_format($tongtien,0,'','.') ?> đ</strong>
                                     </td>
-                            <td colspan="8">Vận chuyển
-                            <?php echo number_format(35000,0,'','.') ?>
-                            </td>
-                            <td style="border: 1px solid lightgrey; border-width: 1px 0">Tổng cộng 
-                        </tr>
-                    </td>
+                                    </tr>   
+                        <tr>
+                            <td colspan="8" style="line-height: 0cm; text-align:left;" >Vận chuyển: 
+                                         <?php echo number_format(35000,0,'','.') ?> đ
+                            </td>  
+ 
+                                    </tr>
+                        <td>
+                                    <div style="border: 5px inset lightgrey;
+                        font: weight 50;
+                         border-width: 1px;
+                         margin-bottom: 70px;">TỔNG CỘNG 
+                        
+                                    </div>
+                                    </td>
+                        
                     </tbody>
                 </table>
-        </div>
-    </div>
+
+                          
+        </div>                    
+    </div>                                 
     </form>
     </div>
 <?php

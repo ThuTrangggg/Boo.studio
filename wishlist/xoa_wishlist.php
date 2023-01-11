@@ -7,7 +7,7 @@ session_start();
 if(isset($_GET['id'])&&isset($_SESSION['wishlist']['mat_hang_wishlist']))
 {
 	$id = $_GET['id'];
-	unset($_SESSION['wishlist']['mat_hang'][$id]);
+	unset($_SESSION['wishlist']['mat_hang_wishlist'][$id]);
  	echo"<script>
     window.location = 'wishlist.php';
     </script>"; 

@@ -1,6 +1,7 @@
 <?php
 include("../connect.php");
 include("../header.php");
+
 if ($_SESSION['login'] != 1) {
 ?>
     <script>
@@ -12,11 +13,19 @@ if ($_SESSION['login'] != 1) {
 ?>
 
 <body>
+    
     <div class="container" style="margin-top: 150px">
-        <div class="row">
+        <div class="row" style="margin-bottom: 200pX;"> 
             <div class="col-sm-2"></div>
             <div class="col-sm-8">
-                <table class="" style="margin-bottom: -110px;">
+            <!-- <h1>  Danh sách yêu thích </h1> -->
+            <h1 style="
+    font-size: 30;
+    margin-top: 15px;
+    margin-bottom: 45px;
+    margin-left: 180px;
+"> Danh sách yêu thích </h1>
+                <table class="table" style="margin-bottom: -110px;">
                     <tr style="border-bottom: solid;border-top: solid;border-color: lightgrey;border-width: 1px;" >
                     <style>
                                     th{
@@ -57,26 +66,26 @@ if ($_SESSION['login'] != 1) {
                             </tr>
                         <?php }
                         ?>
-                        <tr>
+                        <!-- <tr>
                             <td colspan="8" class="text-center">
                                 Danh sach yêu thích  
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
                 <hr style="border: none;"><br><br><br>
                 <?php
-                if(isset($_SESSION['wishlist']['tong_so_wishlist']) && $_SESSION['wishlist']['tong_so_wishlist']>0){
-                ?>
-                    <div style="text-align:center;margin-bottom: 50px;margin-top: 10px;">
-                        <a class="btn text-uppercase" style="background-color: #000; border-radius: 40px; color:#fff;height: 36px; width: 152px; margin-left:64px;" href="thanhtoan.php"></a>
-                    </div>
-                <?php
-            }elseif($_SESSION['wishlist']['tong_so_wishlist']==0){ ?>
-            <div style="text-align:center; margin-bottom: 50px">
-                        <img src="https://bizweb.dktcdn.net/100/333/755/themes/688335/assets/empty_cart.png?1647314197820" alt="">
-                    </div>
-                    <?php }?>
+            //     if(isset($_SESSION['wishlist']['tong_so_wishlist']) && $_SESSION['wishlist']['tong_so_wishlist']>0){
+            //     ?>
+            <!-- //         <div style="text-align:center;margin-bottom: 50px;margin-top: 10px;">
+            //             <a class="btn text-uppercase" style="background-color: #000; border-radius: 40px; color:#fff;height: 36px; width: 152px; margin-left:64px;" href="thanhtoan.php"></a>
+            //         </div> -->
+               <?php
+            // }elseif($_SESSION['wishlist']['tong_so_wishlist']==0){ ?>
+            <!-- // <div style="text-align:center; margin-bottom: 50px">
+            //             <img src="https://bizweb.dktcdn.net/100/333/755/themes/688335/assets/empty_cart.png?1647314197820" alt="">
+            //         </div> -->
+                     <?php //}?>
                 <!--Nếu số hàng trong giỏ >0 thì mới hiện form dưới-->
 
             </div>

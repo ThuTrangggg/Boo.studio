@@ -1,5 +1,6 @@
 <?php 
-include 'header.php';
+include( "header.php");
+//include("../thong_tin/slide_thongtin.php")
 ?>
 <!DOCTYPE html>
 <html lang="vi">
@@ -112,12 +113,12 @@ include 'header.php';
                          ?>
                             <div class="tab-pane  show active pl-4 " id="nav-taikhoan" role="tabpanel" aria-labelledby="nav-taikhoan-tab">
                                 <div class="offset-md-4 mt-3">
-                                    <h3 class="account-header">Thông tin tài khoản</h3>
+                                    <h3 class="account-header" style="margin-top: -50px;margin-left: 436px;font-size: 45px;">Thông tin tài khoản</h3>
                                 </div><br>
                                
                                 <div class="hoten my-3">
                                     <div class="row">
-                                        <label class="col-md-2 offset-md-2" for="account-hoten">Họ tên</label>
+                                        <label style="min-height: 30px;padding-right: 15px;padding-left: 15px;margin-left: 379px;margin-top: 10px;" class="col-md-2 offset-md-2" for="account-hoten">Họ tên</label>
                                         <input class="col-md-4" type="text" id="txtTenKH" name="txtTenKH" value="<?php echo $row["ten_khachhang"];?>" / >
                                      </div>
                                 </div>
@@ -125,23 +126,23 @@ include 'header.php';
                             
                                 <div class="hoten my-3">
                                     <div class="row"> 
-                                        <label class="col-md-2 offset-md-2" for="account-diachi">Địa chỉ nhận hàng* </label>
+                                        <label style="min-height: 30px;padding-right: 15px;padding-left: 15px;margin-left: 379px;margin-top: 10px;"  class="col-md-2 offset-md-2" for="account-diachi">Địa chỉ nhận hàng* </label>
                                         <input class="col-md-4" type="text" id="txtDiachi" name="txtDiachi" value="<?php echo $row["dia_chi"];?>" /  >
                                      </div>
                                 </div>
 
                                 <div class="hoten my-3">
                                     <div class="row"> 
-                                        <label class="col-md-2 offset-md-2" for="account-sdt">Email* </label>
+                                        <label style="min-height: 30px;padding-right: 15px;padding-left: 15px;margin-left: 379px;margin-top: 10px;" class="col-md-2 offset-md-2" for="account-sdt">Email* </label>
                                         <input class="col-md-4" type="text" id="txtEmail" name="txtEmail"  value="<?php echo $row["email"];?>" /  >
                                     </div>
                                 </div>
                                 <div class="capnhat my-3">
-                                    <input class="button-capnhat text-uppercase offset-md-4 btn btn-warning mb-4" type="submit" name="btnSubmit" value="Sửa thông tin ">
+                                    <input style="background-color: #151514;font-weight: 700;padding: 11px 19px;font-size: 14px;margin-left: 412px;border-radius: 5px;" class="button-capnhat text-uppercase offset-md-4 btn btn-warning mb-4" type="submit" name="btnSubmit" value="Sửa thông tin ">
                                 </div>
                                 <div class="checkbox-change-pass my-3">
                                     <div class="row" style="margin-top: -75px">
-                                        <a style="margin-left: 600px" href="" data-toggle="modal" data-target="#form-formdoimk">Đổi mật khẩu</a>
+                                        <a style="margin-left: 600px;color: #0f1010;" href="" data-toggle="modal" data-target="#form-formdoimk">Đổi mật khẩu </a>
                                     </div>
                                 </div>
                             </div>
@@ -152,7 +153,7 @@ include 'header.php';
                                     <div class="modal-header">
                                         <ul class="tabs d-flex justify-content-around list-unstyled mb-0">
                                         <li class="tab tab-dangnhap text-center">
-                                            <a class=" text-decoration-none">Đổi mật khẩu</a>
+                                            <a style="color: #0d0e0e;font-size: 30px;" class=" text-decoration-none">Đổi mật khẩu</a>
                                             <hr>
                                         </li></ul>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -166,12 +167,12 @@ include 'header.php';
                                             </div>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input type="password" class="form-control" placeholder="Nhập mật khẩu mới" id="mk_moi" name="mk_moi">
+                                                <input style="margin-left: 14px;width: 95%;margin-top: 5px;" type="password" class="form-control" placeholder="Nhập mật khẩu mới" id="mk_moi" name="mk_moi">
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input type="password" class="form-control" placeholder="Nhập lại mật khẩu mới" id="mk_nhaplai" name="mk_nhaplai">
+                                                <input style="margin-left: 14px;width: 95%;margin-top: 21px;" type="password" class="form-control" placeholder="Nhập lại mật khẩu mới" id="mk_nhaplai" name="mk_nhaplai">
                                             </div>
-                                            <input class="button-capnhat text-uppercase offset-md-4 btn btn-warning mb-4" type="submit" name="btnSubmit" value="Đổi mật khẩu">
+                                            <input style="margin-top: 21px;margin-left: 15px;    border-color: #191817;background-color: #0c0b0b;" class="button-capnhat text-uppercase offset-md-4 btn btn-warning mb-4" type="submit" name="btnSubmit" value="Đổi mật khẩu">
                                             <hr class="my-4">
                                         </form>
                                     </div>

@@ -16,6 +16,7 @@ if ($result->num_rows > 0) {
         $nguoiDungId = $nguoiDung['khachhang_id'];
         $nguoiDungemail = $nguoiDung['email'];
         $nguoiDungrole = $nguoiDung['role_id'];
+        $mat_khau_cu = $nguoiDung['mat_khau'];
         // $nguoiDungAdmin = $nguoiDung['admin'];
     }
         session_start(); // Muốn làm việc với SESSION luôn phải dùng hàm khởi tạo này
@@ -26,6 +27,9 @@ if ($result->num_rows > 0) {
         $_SESSION["gio_hang"]["tong_so"] = 0;
         $_SESSION["gio_hang"]["tong_tien"] = 0;
         $_SESSION['userId'] = $nguoiDungId;
+        $_SESSION["wishlist"]["tong_so_wishlist"] = 0;
+        $_SESSION["wishlist"]["mat_hang_wishlist"] = array();
+        $_SESSION['mat_khau']=$mat_khau_cu;
         // $_SESSION['admin'] = $nguoiDungAdmin;
         // echo "
         //         <script type='text/javascript'>

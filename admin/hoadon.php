@@ -109,7 +109,7 @@ if(!isset($_SESSION['login']))
                                                 }else if($row['tinh_trang']==0){
                                                 ?>
                                                 <a class="btn btn-success" style="font-size: 14px;" href="xacnhan.php?idhd=<?php echo $row['hoadon_id'];?>
-                                                &role_id=<?php echo $_SESSION['role_id'];?>">Giao hàng</a>
+                                                &role_id=1">Giao hàng</a>
                                                 <?php
                                                     }
                                                 ?></td>                                       
