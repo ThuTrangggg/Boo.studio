@@ -45,6 +45,10 @@ session_start();; ?>
         .fa-regular fa-heart:hover {
             color: red;
         }
+
+        .dropdown-toggle::after {
+            display: none;
+        }
     </style>
 </head>
 
@@ -93,7 +97,7 @@ session_start();; ?>
                     <div class="col-md-6 khoianh">
                         <div class="anhto mb-4">
                             <a class="active" href="<?php echo $row1["anh"]; ?>" data-fancybox="thumb-img">
-                                <img class="product-image" src="<?php echo $row1["anh"]; ?>" alt="<?php echo $row1["anh"]; ?>" style="width: 100%;">
+                                <img class="product-image" src="<?php echo $row1["anh"]; ?>" alt="<?php echo $row1["anh"]; ?>" style="height: 700px; object-fit: cover">
                             </a>
                             <a href="<?php echo $row1["anh"]; ?>" data-fancybox="thumb-img"></a>
                         </div>
@@ -103,7 +107,7 @@ session_start();; ?>
 
                         <h2 style="margin-left: 50px"><?php echo $row1["ten_sanpham"]; ?></h2>
 
-                        <h5 style="margin-left: 50px;font-size: 24px; margin-top:20px ;">GIÁ BÁN:
+                        <h5 style="margin-left: 50px;font-size: 20px; margin-top:20px ;">GIÁ BÁN:
 
                             <?php
                             if (isset($row1['gia_ban_khuyen_mai'])) {
@@ -152,12 +156,12 @@ session_start();; ?>
 
                                 <input type="submit" class="button-capnhat text-uppercase offset-md-1 btn" style="background-color: #000; border-radius: 40px; color:#fff;height: 36px; width: 152px; margin-left:64px;" name="btnSubmit" value="Thêm vào giỏ hàng">
 
-                                <button type="button" class="btn btn-info"  style="width: 100px; height: 35px; margin-left: 40px; border-radius: 50px; background-color: #DAF9E6; color: #000; border: 1px solid #000;">MUA NGAY</button>
+                                <button type="button" class="btn btn-info" style="width: 100px; height: 35px; margin-left: 40px; border-radius: 50px; background-color: #DAF9E6; color: #000; border: 1px solid #000;">MUA NGAY</button>
                                 <!-- <a  href="/Nhom14/wishlist/them_wishlist.php"class="like-btn" style="margin:15px; ">
                                     <button <i class="fa-regular fa-heart" style="border: none; box-shadow: 0 2px 4px rgb(0 0 0 / 16%); border-radius: 20px; width: 30px; height: 30px; font-size: 18px; background-color: white;"></i></button>
                                 </a> -->
                             </div>
-                            
+
                         </form>
                         <form class="" method="post" action="/Nhom14/wishlist/them_wishlist.php" id="form_them_gio_hang">
 
@@ -182,11 +186,11 @@ session_start();; ?>
                             <input type="hidden" value="<?php if ($row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] > 0) echo "Còn hàng";
                                                         else echo "Hết hàng"; ?>" name="tinh_trang" />
                             <div class="row" style="align-items: center;">
-                                <a  href="/Nhom14/wishlist/them_wishlist.php"class="like-btn" style="margin:15px; "> -->
+                                <a href="/Nhom14/wishlist/them_wishlist.php" class="like-btn" style="position: absolute; margin: 15px; text-decoration: none; color: black; top: 182px; left: 373px;">
                                     <button type="submit" <i class="fa-regular fa-heart" style="border: none; box-shadow: 0 2px 4px rgb(0 0 0 / 16%); border-radius: 20px; width: 30px; height: 30px; font-size: 18px; background-color: white;"></i></button>
-                                 </a>
+                                </a>
                             </div>
-                            
+
                         </form>
                         <!--Tab-->
 
@@ -199,7 +203,7 @@ session_start();; ?>
                                     <p class="chinhsach_hover">CHÍNH SÁCH GIAO HÀNG & BẢO HÀNH</p>
                                 </div>
                             </div>
-                            <div class="tab-content" style="padding:15px 10px 10px 15px; color:gray;">
+                            <div class="tab-content" style="padding:15px 10px 10px 15px; color:darkgray;">
                                 <div class="tab-content-mota">
                                     <h7 style="font-size:14px; word-spacing:0.09cm; margin-top:auto ;"><?php echo $row1["mo_ta"]; ?></h7>
                                 </div>
@@ -242,6 +246,67 @@ session_start();; ?>
     </section>
     <!-- het product-page -->
 
+    <!-- COmmetn -->
+    <div class="container" style="">
+        <!-- 1 sản phẩm -->
+        <?php
+        $sql_fb = "SELECT tbl_khachhang.email, detail, rate, date FROM `feed_back` join tbl_khachhang on feed_back.user_id = tbl_khachhang.khachhang_id 
+                     where sanpham_id='" . $sanpham_id . "'";
+        $kq_fb = mysqli_query($ket_noi, $sql_fb);
+        if ($kq_fb->num_rows > 0) {
+            ?>
+             <div style="border: 1px solid lightgray; border-bottom: 1px solid lightgrey; font-size: 16px;padding-left: 20px; ">
+                
+             <div style="color: #6f4400;    line-height: 39px;">
+             
+                    Đánh giá sản phẩm
+                    <i class="fa-regular fa-face-smile"></i>
+                </div>
+            </div>
+            <?php
+            while ($row = mysqli_fetch_array($kq_fb)) { ?>
+                <div class="comment">
+                    <div class="comment-user">
+                        <i class="avatar fa-solid fa-circle-user"></i>
+                        <div class="comment-info">
+                            <?= $row['email'] ?>
+
+                            <div class="comment-rate">
+                                <?php
+                                $n = $row['rate'];
+                                for ($i = 0; $i < $n; $i++) {
+                                ?> <i class="fa-solid fa-star"></i>
+                                <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-date">
+                        <?php echo $row['date'] ?>
+                    </div>
+                    <div class="comment-detail">
+                        <p>
+                            <?php echo $row["detail"]; ?>
+                        </p>
+                    </div>
+                </div>
+
+            <?php }
+        } else { ?>
+
+            <div style="border: 1px solid gray; font-size: 13px;height: 100px;padding: 23px; letter-spacing: 1px;">
+                <div style="background: #fdf0d5; color: #6f4400;    line-height: 39px;">
+                    <i class="fa-solid fa-triangle-exclamation" style="color: #c07600; margin-left: 10px"></i>
+                    Sản phẩm hiện tại chưa có đánh giá
+                </div>
+            </div>
+        <?php
+        }
+
+        ?>
+    </div>
+    <!-- End comment -->
     <!-- khối sản phẩm tương tự -->
     <section class="_1khoi spmoi">
         <div class="container-fluid">
@@ -279,38 +344,6 @@ session_start();; ?>
             </div>
         </div>
     </section>
-
-
-    <!-- footer  -->
-
-
-    <!-- nut cuon len dau trang -->
-    <div class="fixed-bottom">
-        <div class="btn btn-warning float-right rounded-circle nutcuonlen" id="backtotop" href="#" style="background:#f68634;"><i class="fa fa-chevron-up text-white"></i></div>
-    </div>
-
-    <script language="javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
-    <script type="text/javascript">
-        function addtocard(data1) {
-            //alert(id);
-            var so_luong1 = $("#so_luong").val();
-            //alert("Thêm");
-            $.ajax({
-                url: "themgiohang.php", // gửi ajax đến file result.php
-                type: "get", // chọn phương thức gửi là get
-                dateType: "text", // dữ liệu trả về dạng text
-                data: { // Danh sách các thuộc tính sẽ gửi đi
-                    id: data1,
-                    so_luong: so_luong1
-                },
-                success: function(result) {
-                    // Sau khi gửi và kết quả trả về thành công thì gán nội dung trả về
-                    // đó vào thẻ div có id = result
-                    alert(result);
-                }
-            });
-        }
-    </script>
 </body>
 <?php include("../footer.php"); ?>
 

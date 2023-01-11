@@ -16,7 +16,7 @@ if ($_SESSION['login'] != 1) {
         <div class="row">
             <div class="col-sm-2"></div>
             <div class="col-sm-8">
-                <table class="" style="margin-bottom: -110px;">
+                <table class="table" style="margin-bottom: -110px;">
                     <tr style="border-bottom: solid;border-top: solid;border-color: lightgrey;border-width: 1px;" >
                     <style>
                                     th{

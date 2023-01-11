@@ -196,6 +196,7 @@ a:visited{
 	animation: fadeIn linear 0.2s;
 }
 
+
 /* END HEADER-------------------------------------------- */
 
 /* SLIDER-------------------------------- */
@@ -417,7 +418,7 @@ a:visited{
 
 /* DANH SACH MAT HANG */
 .row-hide{
-	/* display: none; */
+	display: none;
 }
 
 .info:hover .row-hide {
@@ -440,3 +441,61 @@ a:visited{
 		translate: 0 10px;
 	}
 } */
+
+/* COMMENT */
+/* .comment:first-child{
+	border-top: 1px solid grey;
+
+} */
+
+.comment:last-child{
+	border-bottom: 1px solid lightgrey;
+
+}
+.comment{
+	border-left: 0.5px solid lightgrey;
+	border-right: 0.5px solid lightgrey;
+	border-bottom: 0.5px solid lightgrey;
+	padding: 20px;
+}
+
+.avatar{
+    font-size: 48px;	
+}
+
+.comment-user{
+	font-size: 16px;
+	display: inline-block;
+}
+
+.comment-info{
+	display: inline-block;
+	margin-left: 5px;
+	font-size: 16px;
+
+}
+
+.comment-rate{
+	font-size: 16px;
+
+}
+
+.comment-rate i{
+	color: rgba(255, 200, 0, 0.921);
+	
+}
+
+.comment-date{
+	margin: 5px 0 0 57px;
+
+	font-size: 14px;
+
+}
+
+.comment-detail{
+	font-size: 16px;
+	margin: 10px 0 0 57px;
+}
+
+/* END COMMENT */
+
