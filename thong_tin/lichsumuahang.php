@@ -112,7 +112,7 @@ if(isset($_SESSION['login']))
                         <?php
                         if($row['tinh_trang']==1){
                         ?>
-                        <a class="btn btn-success" style="font-size: 14px;" href="admin/xacnhan.php?idhd=<?php echo $row['hoadon_id'];?>">Nhận hàng</a>
+                        <a class="btn btn-success" style="font-size: 14px;" href="/Nhom14/admin/xacnhan.php?idhd=<?php echo $row['hoadon_id'];?>">Nhận hàng</a>
                         <?php
                         }
                         ?>

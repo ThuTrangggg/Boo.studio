@@ -415,3 +415,28 @@ a:visited{
 }
 
 
+/* DANH SACH MAT HANG */
+.row-hide{
+	/* display: none; */
+}
+
+.info:hover .row-hide {
+	display: block;
+	animation: fadeIn linear 0.2s;
+
+}
+
+.info:hover {
+	opacity: 0.9;
+	translate: 0 -10px;
+}
+
+/* 
+@keyframes translate{
+	from{
+		translate: 0;
+	}
+	to{
+		translate: 0 10px;
+	}
+} */

@@ -152,11 +152,41 @@ session_start();; ?>
 
                                 <input type="submit" class="button-capnhat text-uppercase offset-md-1 btn" style="background-color: #000; border-radius: 40px; color:#fff;height: 36px; width: 152px; margin-left:64px;" name="btnSubmit" value="Thêm vào giỏ hàng">
 
-                                <button type="button" class="btn btn-info" style="width: 100px; height: 35px; margin-left: 40px; border-radius: 50px; background-color: #DAF9E6; color: #000; border: 1px solid #000;">MUA NGAY</button>
-                                <div class="like-btn" style="margin:15px; ">
+                                <button type="button" class="btn btn-info"  style="width: 100px; height: 35px; margin-left: 40px; border-radius: 50px; background-color: #DAF9E6; color: #000; border: 1px solid #000;">MUA NGAY</button>
+                                <!-- <a  href="/Nhom14/wishlist/them_wishlist.php"class="like-btn" style="margin:15px; ">
                                     <button <i class="fa-regular fa-heart" style="border: none; box-shadow: 0 2px 4px rgb(0 0 0 / 16%); border-radius: 20px; width: 30px; height: 30px; font-size: 18px; background-color: white;"></i></button>
-                                </div>
+                                </a> -->
                             </div>
+                            
+                        </form>
+                        <form class="" method="post" action="/Nhom14/wishlist/them_wishlist.php" id="form_them_gio_hang">
+
+                            <!-- <div class="product-content-right-size mb-3" style="margin-left:50px; display: inline-block">
+                                <select name="size" id="" style=" 
+                                width: 150px;
+                                height: 36px; border-radius:20px;text-align:center;font-size:13px">
+                                    <option value="Size">Size</option>
+                                    <option value="S">S</option>
+                                    <option value="M">M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                    <option value="XXL">XXL</option>
+                                </select>
+                                <input style="margin-left: 50px; width:50px ;height:25px;font-size:13px;" class="" id="so_luong" name="so_luong" placeholder="Số lượng" type="number" value="1" min="0" max="<?= $row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] ?>">
+                            </div> -->
+
+                            <input type="hidden" value="<?= $row1["sanpham_id"] ?>" name="sanpham_id" />
+                            <input type="hidden" value="<?= $row1["ten_sanpham"] ?>" name="ten_sanpham" />
+                            <input type="hidden" value="<?= $row1["gia"] ?>" name="gia" />
+                            <input type="hidden" value="<?= $row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] ?>" name="ton_kho" />
+                            <input type="hidden" value="<?php if ($row1["tbl_sanpham.so_luong-COALESCE(tbl_giohang.so_luong,0)"] > 0) echo "Còn hàng";
+                                                        else echo "Hết hàng"; ?>" name="tinh_trang" />
+                            <div class="row" style="align-items: center;">
+                                <a  href="/Nhom14/wishlist/them_wishlist.php"class="like-btn" style="margin:15px; "> -->
+                                    <button type="submit" <i class="fa-regular fa-heart" style="border: none; box-shadow: 0 2px 4px rgb(0 0 0 / 16%); border-radius: 20px; width: 30px; height: 30px; font-size: 18px; background-color: white;"></i></button>
+                                 </a>
+                            </div>
+                            
                         </form>
                         <!--Tab-->
 

@@ -97,9 +97,8 @@ if (isset($_SESSION['gio_hang']['tong_so']) > 0) {
                             <td colspan="8">Vận chuyển
                             <?php echo number_format(35000,0,'','.') ?>
                             </td>
+                            <td style="border: 1px solid lightgrey; border-width: 1px 0">Tổng cộng 
                         </tr>
-                        <td style="border: 1px solid lightgrey; border-width: 1px 0">Tổng cộng 
-                        <p></p>
                     </td>
                     </tbody>
                 </table>
