@@ -6,15 +6,17 @@ include("../connect.php");
 $tenKhachhang = $_POST['ten_khachhang'];
 $email = $_POST['email'];
 $diaChi = $_POST['dia_chi'];
-
+$pttt = $_POST['phuong_thuc_thanh_toan'];
 // $sql = "SELECT *FROM `tbl_khachhang` WHERE
 //  `email` = '" . $email . "' AND `mat_khau` = '" . $password . "' ";
 
 // $result = $conn->query($sql);
 
-$khachhang_id = $_SESSION['userId'];
-$sql = "INSERT INTO `tbl_hoadon`(`khachhang_id`, `ngay_xuat`, `tinh_trang`) 
-VALUES ('$khachhang_id',current_timestamp(), '0')";
+$userId = $_SESSION['userId'];
+
+$sql = "INSERT INTO `tbl_hoadon`(`id_taikhoan`, `ngay_xuat`, `tinh_trang`, pttt) 
+VALUES ('$userId',current_timestamp(), 'Đang chờ xử lý', '$pttt')";
+
 $kq = mysqli_query($ket_noi, $sql);
 
 $sql = "SELECT MAX(`hoadon_id`) as `hoadon_id` FROM `tbl_hoadon`";
@@ -23,18 +25,19 @@ $id = mysqli_fetch_array($kq);
 $id = $id['hoadon_id'];
 $_SESSION['hoadon_id'] = $id;
 $tongtien = 0;
+print_r($_SESSION['gio_hang']['mat_hang']);
 foreach ($_SESSION['gio_hang']['mat_hang'] as $key => $row) {
+
     $so_luong = $row['so_luong'];
     $sql = "SELECT so_luong FROM tbl_sanpham WHERE sanpham_id=$key";
     $kq = mysqli_query($ket_noi, $sql);
     $sl = mysqli_fetch_array($kq);
     $so_luong_kho = $sl['so_luong'];
-    $sql1 = "INSERT INTO `tbl_giohang`
-    (`sanpham_id`, `hoadon_id`, `so_luong`) 
-    VALUES ('" . $row['sanpham_id'] . "',$id,$so_luong)";
+    
+    $sql1 = "INSERT INTO `tbl_giohang`(`sanpham_id`, `hoadon_id`, `so_luong`) VALUES ('" . $row['sanpham_id'] . "',$id,$so_luong)";
     $kq = mysqli_query($ket_noi, $sql1);
-    $sql2 = "UPDATE tbl_sanpham 
-    SET so_luong= $so_luong_kho-$so_luong WHERE sanpham_id=$key";
+    
+    $sql2 = "UPDATE tbl_sanpham SET so_luong= $so_luong_kho-$so_luong WHERE sanpham_id=$key";
     $kq = mysqli_query($ket_noi, $sql2);
     $thanhtien = $row['so_luong'] * $row['gia'];
     $tongtien = $thanhtien + $tongtien;

@@ -8,11 +8,11 @@ include("connect.php");
 
   <div id="content wrapper">
 
-    <div id="slider" style="height: 900px; width: 100%">
+    <div id="slider" style="height: 750px; width: 100%">
       <div class="slick-slider" style="height: 100%;">
-        <img src="https://cdn2.boo.vn/media/wysiwyg/z3833152554507_570e6b6fbd2f912e2074461560443cf3.jpg" alt="">
-        <img style="object-fit: cover;" src="https://cdn2.boo.vn/media/wysiwyg/banner_speed_up_web.JPG" alt="">
-        <img src="https://cdn2.boo.vn/media/wysiwyg/z3833152087189_ad3ff60603748103cfba20de3aa6d872.jpg" alt="">
+        <img style="object-fit: cover;" src="https://cdn.boo.vn/media/wysiwyg/banner_lotso.10.1_Des.png" alt="">
+        <img style="object-fit: cover;" src="https://cdn.boo.vn/media/wysiwyg/banner_web_pc-Denim_21.12.png" alt="">
+        <img style="object-fit: cover;" src="https://cdn.boo.vn/media/wysiwyg/banner-03.png" alt="">
       </div>
     </div>
     <script>
@@ -29,18 +29,18 @@ include("connect.php");
       });
     </script>
     <div class="first-row" style="margin: auto; width: 1520px; text-align: center; padding: 80px 0;">
-      <div class="row">
+      <!-- <div class="row">
 
         <div class="col-lg-4">
-          <img width="100%" src="https://cdn2.boo.vn/media/wysiwyg/z4012872199480_1b3af46301dd7ee04d274135fc616c8f.jpg" alt="">
+          <img width="100%" src="https://cdn.boo.vn/media/catalog/product/1/_/1.2.29.3.18.001.223.23-10400011-bst-1_2.jpg" alt="">
         </div>
         <div class="col-lg-4">
-          <img width="100%" src="https://cdn2.boo.vn/media/wysiwyg/z4012872279702_57bb6eec3075728ead8c92d085c750a9.jpg" alt="">
+          <img width="100%" src="https://cdn.boo.vn/media/catalog/product/3/_/3_18.jpg" alt="">
         </div>
         <div class="col-lg-4">
-          <img width="100%" src="https://cdn2.boo.vn/media/wysiwyg/z4012872279821_1dde07e18684f8b249eec4f99c6211b9.jpg" alt="">
+          <img width="100%" src="https://cdn.boo.vn/media/catalog/product/1/_/1.0.30.3.22.001.223.23.10200011_1__1.jpg" alt="">
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="second row" style="margin-right: 30px; padding-left:80px">
       <div class="col-sm-2">
@@ -106,7 +106,8 @@ include("connect.php");
           <!-- <div class="row"> -->
 
           <!-- <div class="slick"> -->
-          <?php $sql = "SELECT tbl_sanpham.ten_sanpham, tbl_sanpham.sanpham_id,tbl_sanpham.gia, tbl_sanpham.gia_ban_khuyen_mai,tbl_sanpham.anh, sum(tbl_giohang.so_luong) from tbl_sanpham LEFT join tbl_giohang on tbl_sanpham.sanpham_id = tbl_giohang.sanpham_id GROUP by tbl_giohang.sanpham_id ORDER by sum(tbl_giohang.so_luong) DESC";
+          <?php $sql = "SELECT tbl_sanpham.ten_sanpham, tbl_sanpham.sanpham_id,tbl_sanpham.gia, tbl_sanpham.gia_ban_khuyen_mai,tbl_sanpham.anh, 
+          sum(tbl_chitiethoadon.soluong) from tbl_sanpham LEFT join tbl_chitiethoadon on tbl_sanpham.sanpham_id = tbl_chitiethoadon.product_id GROUP by tbl_chitiethoadon.product_id ORDER by sum(tbl_chitiethoadon.soluong) DESC";
           $ketquatruyvan = $conn->query($sql);
           if ($ketquatruyvan->num_rows > 0) {
             $i = 0;
@@ -162,7 +163,7 @@ include("connect.php");
         <div class="col-lg-3" style="position: relative; background-color: yellow; height: 700px">
           <div class="list-items" style="position: absolute; width: 80%">
 
-            <img style="width:100%; height: 351px" src="https://cdn2.boo.vn/media/wysiwyg/BOO_LAAB.png" alt="">
+            <img style="width:100%; height: 351px" src="https://cdn.boo.vn/media/catalog/product/4/_/4_19.jpg" alt="">
             <p>STREETWEAR FOCUS</p>
             
           </div>
@@ -171,7 +172,7 @@ include("connect.php");
         <div class="col-lg-3" style="position: relative; background-color: #c0e3d5; height: 700px">
           <div class="list-items" style="position: absolute; ">
 
-            <img style="width:100%; height: 351px" src="https://cdn2.boo.vn/media/wysiwyg/BOO.png" alt="">
+            <img style="width:100%; height: 351px" src="https://cdn.boo.vn/media/catalog/product/1/_/1.2.29.3.18.001.223.23-10400011-bst-1_2.jpg" alt="">
             <p>STR. INSPIRED DAILY WEAR</p>
           </div>
           <a class="button-list-items">Xem ngay</a>
@@ -180,7 +181,7 @@ include("connect.php");
         <div class="col-lg-3" style="position: relative; background-color: #f06522; height: 700px">
           <div class="list-items" style="position: absolute; ">
 
-            <img style="width:100%; height: 351px" src="https://cdn2.boo.vn/media/wysiwyg/OOB.png" alt="">
+            <img style="width:100%; height: 351px" src="https://cdn.boo.vn/media/catalog/product/3/_/3_18.jpg" alt="">
             <p>ORIGINAL OUTSTANDING BOLD</p>
           </div>
           <a class="button-list-items">Xem ngay</a>
@@ -189,7 +190,7 @@ include("connect.php");
         <div class="col-lg-3" style="position: relative; background-color: #e82721; height: 700px">
           <div class="list-items" style="position: absolute; ">
 
-            <img style="width:100%; height: 351px" src="https://cdn2.boo.vn/media/wysiwyg/BOOZILLA.png" alt="">
+            <img style="width:100%; height: 351px" src="https://cdn.boo.vn/media/catalog/product/1/_/1.2.25.1.02.002.223.01.60600034_6__3.jpg" alt="">
             <p>FANDOM BẢN QUYỀN CHÍNH THỨC TẠI VN</p>
           </div>
           <a class="button-list-items">Xem ngay</a>
@@ -224,6 +225,7 @@ require("./footer.php")
 //  include $_SERVER["DOCUMENT_ROOT"] . "/Nhom14/footer.php"; 
 
 ?>
+
 
 <html>
 

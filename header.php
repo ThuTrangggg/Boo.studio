@@ -35,11 +35,11 @@
             <li>
                 <a href="/Nhom14/danh_sach_mat_hang/danh_sach_mat_hang.php?id=1">áo</a>
             <li>
-                <a href="/Nhom14/danh_sach_mat_hang/danh_sach_mat_hang.php?id=2">Váy</a>
+                <a href="/Nhom14/danh_sach_mat_hang/danh_sach_mat_hang.php?id=3">Váy</a>
 
             </li>
             <li>
-                <a href="/Nhom14/danh_sach_mat_hang/danh_sach_mat_hang.php?id=3">Quần</a>
+                <a href="/Nhom14/danh_sach_mat_hang/danh_sach_mat_hang.php?id=2">Quần</a>
 
             </li>
             <li>
@@ -47,7 +47,6 @@
 
             </li>
             <li>
-                <a href="" style="color:red; font-weight:600">Tết mua hết</a>
                 <!-- <ul class="subnav" style="text-transform: uppercase; ">
                     <div class="row">
                         <li class="col-lg-2"></li>

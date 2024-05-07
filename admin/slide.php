@@ -13,7 +13,7 @@
             <!-- Navbar-->
             <?php
                 include("../connect.php");
-                $sql="SELECT * FROM tbl_khachhang where role_id = '".$_SESSION['role_id']."'";
+                $sql="SELECT * FROM tbl_taikhoan where id_loaitaikhoan = '".$_SESSION['role_id']."'";
                 $kq = mysqli_query($ket_noi, $sql);
                 $row = mysqli_fetch_array($kq);
             ;?>
@@ -59,16 +59,16 @@
                             </div>
                             <a class="nav-link" href="quantrivien.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Danh sách quản trị viên
+                                Quản lý nhân viên
                             </a>
                             <a class="nav-link" href="khachhang.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Danh sách khách hàng
+                                Quản lý khách hàng
                             </a>
                             </a>
                             <a class="nav-link" href="hoadon.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Quản lý hoá đơn
+                                Quản lý đơn hàng
                             </a>
 
                         </div>

@@ -250,7 +250,7 @@ session_start();; ?>
     <div class="container" style="">
         <!-- 1 sản phẩm -->
         <?php
-        $sql_fb = "SELECT tbl_khachhang.email, detail, rate, date FROM `feed_back` join tbl_khachhang on feed_back.user_id = tbl_khachhang.khachhang_id 
+        $sql_fb = "SELECT tbl_khachhang.email, detail, rate, date FROM `tbl_danhgia` join tbl_khachhang on tbl_danhgia.user_id = tbl_khachhang.khachhang_id 
                      where sanpham_id='" . $sanpham_id . "'";
         $kq_fb = mysqli_query($ket_noi, $sql_fb);
         if ($kq_fb->num_rows > 0) {

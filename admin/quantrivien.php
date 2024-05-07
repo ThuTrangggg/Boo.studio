@@ -22,21 +22,21 @@ session_start();
             <div id="layoutSidenav_content">
             <?php
                 include("../connect.php");
-                $sql="SELECT * FROM tbl_khachhang where role_id ='1'";
+                $sql="SELECT * FROM `tbl_taikhoan` WHERE id_loaitaikhoan <3";
                 $kq = mysqli_query($ket_noi, $sql);
                 $row = mysqli_fetch_array($kq);
             ;?>
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Danh sách Admin</h1>
+                        <h1 class="mt-4">Danh sách nhân viên</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.php">Quản lý hệ thống</a></li>
-                            <li class="breadcrumb-item active">Danh sách Admin</li>
+                            <li class="breadcrumb-item active">Danh sách nhân viên</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Danh sách Admin | <a href="quantrivien_themmoi.php">Thêm mới</a>
+                                Danh sách nhân viên | <a href="quantrivien_themmoi.php">Thêm mới</a>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -45,9 +45,9 @@ session_start();
                                             <th>STT</th>
                                             <th>Họ tên</th>
                                             <th>Email</th>
-                                            
-                                            <th>Mật khẩu</th>
-                                            
+                                            <th>SĐT</th>
+                                            <th>Chức vụ</th>
+                                            <th>Tài khoản</th>
                                             <th>Xóa</th>
                                         </tr>
                                     </thead>
@@ -56,17 +56,17 @@ session_start();
                                             <th>STT</th>
                                             <th>Họ tên</th>
                                             <th>Email</th>
-                                            
-                                            <th>Mật khẩu</th>
-                                            
+                                            <th>SĐT</th>
+                                            <th>Chức vụ</th>
+                                            <th>Tài khoản</th>
                                             <th>Xóa</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                     <?php 
-                                        $sql1 = "
-                                                  SELECT * FROM tbl_khachhang where role_id='1'
-                                        ";
+                                        $sql1 = "SELECT * FROM `tbl_taikhoan` join tbl_admin 
+                                        on tbl_admin.id_taikhoan = id
+                                        WHERE id_loaitaikhoan <3 ";
                                         $ket_qua = mysqli_query($ket_noi, $sql1);
                                         $i=0;
                                         while ($row1 = mysqli_fetch_array($ket_qua)) {
@@ -76,15 +76,12 @@ session_start();
                                     ;?>
                                         <tr>
                                             <td><?php echo $i;?></td>
-                                            <td><?php echo $row1["ten_khachhang"];?></td>
+                                            <td><?php echo $row1["ten_admin"];?></td>
                                             <td><?php echo $row1["email"];?></td>
-                                           
-                                            <td><?php echo $row1["mat_khau"];?></td>
-                                            
-                                            
-                                            
-                                                <td><a  class="btn btn-danger" href="quantrivien_xoa.php?id=<?php echo $role_id["1"]; ?>" onclick="return confirm('Bạn có muốn xoá?')">Xoá</a></td>
-                                           
+                                            <td><?php echo $row1["sdt"];?></td>
+                                            <td><?php echo $row1["chuc_vu"];?></td>
+                                            <td><?php echo $row1["ten_dangnhap"];?></td>
+                                            <td><a class="btn btn-danger" href="quantrivien_xoa.php?id=<?php echo $row1["id_taikhoan"]; ?>" onclick="return confirm('Bạn có muốn xoá?')">Xoá</a></td>
                                         </tr>
                                     <?php
                                         }

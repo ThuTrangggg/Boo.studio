@@ -16,7 +16,7 @@
     $gia_ban_khuyen_mai = $_POST['txtgiabankhuyenmai'];
     $so_luong = $_POST['txtsoluong'];
     $mo_ta = $_POST['txtmota'];
-    $anh = $_POST['txthinhanh'];
+    $anh = $_POST['txtanh'];
     //$noi_luu_anh ="img/".basename($_FILES["txtanh"]["name"]);
    // $luu_file_anh_tam=$_FILES["txtanh"]["tmp_name"];
     // $ket_qua_up_anh = move_uploaded_file($luu_file_anh_tam, $noi_luu_anh);

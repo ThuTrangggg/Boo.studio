@@ -72,7 +72,7 @@ if (isset($_SESSION['login'])) {
 
                         <?php
                         $sql1 = "
-                              SELECT * FROM tbl_hoadon Where tbl_hoadon.khachhang_id = '" . $_SESSION['userId'] . "' ORDER BY tbl_hoadon.hoadon_id ASC 
+                              SELECT * FROM tbl_hoadon Where tbl_hoadon.id_taikhoan = '" . $_SESSION['userId'] . "' ORDER BY tbl_hoadon.hoadon_id ASC 
                     ";
                         $ket_qua = mysqli_query($ket_noi, $sql1);
                         $i = 0;
@@ -89,28 +89,14 @@ if (isset($_SESSION['login'])) {
                                 <td><?php echo number_format($r["SUM(tbl_sanpham.gia*tbl_giohang.so_luong)"], 0, '', '.'); ?> đ</td>
                                 <td><?php echo $r["SUM(tbl_giohang.so_luong)"]; ?></td>
                                 <td><?php echo $row["ngay_xuat"]; ?></td>
+                                <td><?php echo $row["tinh_trang"]; ?></td>
                                 <td>
                                     <?php
-                                    if ($row['tinh_trang'] == 1) {
+                                    if ($row['tinh_trang'] == 'Đang giao hàng') {
                                     ?>
-                                        <a class="btn btn-default" style="font-size: 14px;" href="#">Đã giao hàng</a>
+                                        <a class="btn btn-info" style="font-size: 14px;" href="./admin/xacnhan.php?idhd=<?php echo $row['hoadon_id']; ?>">Đã nhận hàng</a>
                                     <?php
-                                    } else if ($row['tinh_trang'] == 0) {
-                                    ?>
-                                        <a class="btn btn-default" style="font-size: 14px;" href="#">Chưa giao hàng</a>
-                                    <?php } else { ?>
-                                        <a class="btn btn-default" style="font-size: 14px;" href="#">Đã nhận hàng</a>
-                                    <?php
-                                    };
-                                    ?>
-                                </td>
-                                <td>
-                                    <?php
-                                    if ($row['tinh_trang'] == 1) {
-                                    ?>
-                                        <a class="btn btn-success" style="font-size: 14px;" href="admin/xacnhan.php?idhd=<?php echo $row['hoadon_id']; ?>">Nhận hàng</a>
-                                    <?php
-                                    }
+                                    } 
                                     ?>
                                 </td>
                                 <td><a class="btn btn-primary" href="lichsumuahangchitiet.php?id=<?php echo $row["hoadon_id"]; ?>"><i class="fas fa-search"></i></a></td>

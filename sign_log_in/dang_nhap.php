@@ -27,7 +27,7 @@
      letter-spacing: 1px;
      width: 100%;
       height:30px;
-      " name="email" autocomplete="email" id="email_address" value="" placeholder="Email" title="Email" class="input-text" aria-required="true">
+      " name="ten_dangnhap" autocomplete="email" id="email_address" value="" placeholder="Email" title="Email" class="input-text" aria-required="true">
           </div>
         </div>
         <div class="field password required">

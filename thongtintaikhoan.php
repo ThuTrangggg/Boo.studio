@@ -93,10 +93,8 @@ include( "header.php");
 
 <body>
   <?php include("connect.php");
-  include("./thong_tin/slide_thongtin.php");
+  //include("./thong_tin/slide_thongtin.php");
   ?>
-  
-
     <section class="account-page my-3">
         <div class="container" style="margin-top: 150px;">
             <div class="page-content bg-white">
@@ -107,7 +105,9 @@ include( "header.php");
                         <?php
                           
                             $khachhang_id= $_SESSION['userId'];  
-                            $sql = "SELECT * FROM tbl_khachhang WHERE khachhang_id = '".$khachhang_id."' ";
+                            $sql = "SELECT * FROM tbl_taikhoan join tbl_khachhang
+                            on tbl_taikhoan.id = tbl_khachhang.id_taikhoan
+                            WHERE id = '".$khachhang_id."' ";
                             $kh = mysqli_query($ket_noi,$sql);
                            $row=mysqli_fetch_array($kh);
                          ?>
@@ -119,7 +119,7 @@ include( "header.php");
                                 <div class="hoten my-3">
                                     <div class="row">
                                         <label style="min-height: 30px;padding-right: 15px;padding-left: 15px;margin-left: 379px;margin-top: 10px;" class="col-md-2 offset-md-2" for="account-hoten">Họ tên</label>
-                                        <input class="col-md-4" type="text" id="txtTenKH" name="txtTenKH" value="<?php echo $row["ten_khachhang"];?>" / >
+                                        <input class="col-md-4" type="text" id="txtTenKH" name="txtTenKH" value="<?php echo $row["ten_khachhang"];?>">
                                      </div>
                                 </div>
 
@@ -127,7 +127,7 @@ include( "header.php");
                                 <div class="hoten my-3">
                                     <div class="row"> 
                                         <label style="min-height: 30px;padding-right: 15px;padding-left: 15px;margin-left: 379px;margin-top: 10px;"  class="col-md-2 offset-md-2" for="account-diachi">Địa chỉ nhận hàng* </label>
-                                        <input class="col-md-4" type="text" id="txtDiachi" name="txtDiachi" value="<?php echo $row["dia_chi"];?>" /  >
+                                        <input class="col-md-4" type="text" id="txtDiachi" name="txtDiachi" value="<?php echo $row["dia_chi"];?>">
                                      </div>
                                 </div>
 
